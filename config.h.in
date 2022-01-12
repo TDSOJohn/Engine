@@ -1,0 +1,12 @@
+// the configured options and settings for Tutorial
+#define PROJECT_VERSION_MAJOR @engine_VERSION_MAJOR@
+#define PROJECT_VERSION_MINOR @engine_VERSION_MINOR@
+
+#define Debug   0
+#define Release 1
+
+#define Linux   2
+#define Darwin  3
+
+#define CMAKE_BUILD_TYPE @CMAKE_BUILD_TYPE@
+#define CMAKE_HOST_SYSTEM_NAME @CMAKE_HOST_SYSTEM_NAME@

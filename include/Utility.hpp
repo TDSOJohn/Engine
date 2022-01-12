@@ -1,9 +1,6 @@
 //
 //  Utility.hpp
-//  noGravitar
-//
-//  Created by Giovanni Basso on 26/01/2021.
-//  Copyright © 2021 Giovanni Basso. All rights reserved.
+//  Engine
 //
 
 #ifndef Utility_h
@@ -38,7 +35,7 @@ std::string         toString(sf::Keyboard::Key key);
 // Call setOrigin() with the center of the object
 void                centerOrigin(sf::Sprite& sprite);
 void                centerOrigin(sf::Text& text);
-//void                centerOrigin(Animation& animation);
+void                centerOrigin(Animation& animation);
 
 // Degree/radian conversion
 float               toDegree(float radian);
