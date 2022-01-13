@@ -227,3 +227,12 @@ std::vector<int> generatePartition(int max_n, unsigned int parts)
 
     return part;
 }
+
+Pixel inverse(const Pixel& in)
+{
+    Pixel res;
+    res.r = 255 - in.r;
+    res.g = 255 - in.g;
+    res.b = 255 - in.b;
+    return res;
+}

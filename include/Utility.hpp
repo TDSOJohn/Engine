@@ -21,6 +21,22 @@ namespace sf
 
 class Animation;
 
+/** @file */
+
+/// \struct Pixel
+/// \brief Simple pixel struct containing 4 uint8_t values (r, g, b, a)
+/// @var Pixel::r Red value (0..255)
+/// @var Pixel::g Green value (0..255)
+/// @var Pixel::b Blue value (0..255)
+/// @var Pixel::a Alpha value (0..255)
+struct Pixel
+{
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+    uint8_t a;
+};
+
 
 unsigned int modulo(int value, int m);
 
@@ -52,6 +68,12 @@ int                 randomInt(int exclusiveMax);
 // Random number partitioning
 std::vector<int>    generatePartition(int max_n, unsigned int parts);
 
+/// \brief Get the negative of a pixel value.
+/// Function that takes a Pixel and returns its negative, calculated as (255 - pixel_value).
+/// Only r, g and b values are affected.
+/// \param in input Pixel
+/// \returns negative Pixel
+Pixel inverse(const Pixel& in);
 
 #include "Utility.inl"
 
