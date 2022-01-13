@@ -37,7 +37,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: window
-        path: ${{github.workspace}}/build/window
+        path: ${{github.workspace}}/build/libengine.a
 
     - name: Test
       working-directory: ${{github.workspace}}/build
