@@ -1,5 +1,7 @@
 #include "RandomUtilities.hpp"
 
+#include <stdlib.h>
+
 
 std::vector<sf::Vector2u> randomWalk(int t0_x, int t0_y, int iter)
 {

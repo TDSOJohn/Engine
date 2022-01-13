@@ -5,7 +5,9 @@
 #include "../build/config.h"
 
 #if(CMAKE_BUILD_TYPE == Release)
-    #include "CoreFoundation/CoreFoundation.h"
+    #if(APPLE)
+        #include "CoreFoundation/CoreFoundation.h"
+    #endif
     #include <unistd.h>
     #include <libgen.h>
 #endif
