@@ -26,7 +26,7 @@
 namespace GUI
 {
 ///
-/// Button class
+/// Simple Button class
 /// Inherits from GUI::Component
 class Button : public Component
 {
@@ -44,29 +44,29 @@ public:
 
 public:
                             Button(const FontHolder& fonts, const TextureHolder& textures);
-///Call to set the callback function
-///Accepts a std::function parameter
+/// \brief Call to set the callback function.
+/// \param callback A [std::function](https://en.cppreference.com/w/cpp/utility/functional/function) parameter pointing to the function to be called
     void                    setCallback(Callback callback);
-    ///Set button text
-    ///Accepts a std::string
+    /// \brief Set button text.
+    /// \param text A std::string containing the text.
     void                    setText(const std::string& text);
-    ///Set toggle status of the button
-    ///Accepts a bool value
+    /// \brief Set toggle status of the button.
+    /// \param flag A bool value containing the value to set the toggle to.
     void                    setToggle(bool flag);
-///Get selectable value
-///Returns a bool reppresenting if the button is selectable
+/// \brief Get selectable value
+/// \return A bool reppresenting if the button is selectable
     virtual bool            isSelectable() const;
-    ///Toogle the selection
+    /// \briefToogle the selection
     ///Calling this function selects the current GUI::Button
     virtual void            select();
-    ///Untoogle the selection
+    /// \brief Untoogle the selection
     ///Calling this function deselects the current GUI::Button
     virtual void            deselect();
 
     virtual void            activate();
     virtual void            deactivate();
-///Have the Button handle a sf::Event
-///Accepts a sf::Event as the input event to process
+/// \brief Have the Button handle a sf::Event
+/// \param event A sf::Event as the input event to process
     virtual void            handleEvent(const sf::Event& event);
 
 
