@@ -1,4 +1,6 @@
 build/
+documentation/
+
 .DS_Store
 main.cpp
 a.out
