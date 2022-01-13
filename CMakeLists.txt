@@ -9,7 +9,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_OSX_DEPLOYMENT_TARGET 10.12)
 
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Release)
 message(${CMAKE_BUILD_TYPE})
 
 # Generate config.h with:

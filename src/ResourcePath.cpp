@@ -1,12 +1,9 @@
 #include "ResourcePath.hpp"
 
-#include <iostream>
-
 
 std::string getResourcePath()
 {
     std::stringstream ss;
-    std::cout << "Entering serourcePath" << std::endl;
 
     #if(CMAKE_BUILD_TYPE == Release)
         #if(APPLE)
@@ -17,12 +14,12 @@ std::string getResourcePath()
             assert(success);
             CFRelease(bundleURL);
             ss << path << "/Contents/Resources/";
+        #else
+            ss << "../Resources/";
         #endif
     #else
         ss << "../Resources/";
     #endif
-
-    std::cout << ss.str() << std::endl;
 
     return ss.str();
 }
