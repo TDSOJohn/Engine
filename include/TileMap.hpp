@@ -9,6 +9,9 @@
 #include <vector>
 
 
+namespace eng
+{
+
 class TileMap: public SceneNode
 {
 public:
@@ -31,5 +34,7 @@ private:
 private:
     virtual void                drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 };
+
+}
 
 #endif

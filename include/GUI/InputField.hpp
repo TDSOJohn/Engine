@@ -7,6 +7,9 @@
 #include "ResourceIdentifiers.hpp"
 
 
+namespace eng
+{
+
 class InputField : public sf::Drawable
 {
 public:
@@ -40,6 +43,6 @@ private:
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };
-
+}
 
 #endif // inputfield_hpp

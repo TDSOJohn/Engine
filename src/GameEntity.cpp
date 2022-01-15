@@ -11,6 +11,9 @@
 #include <cassert>
 
 
+namespace eng
+{
+
 GameEntity::GameEntity(int hitpoints, float maxv):
     RigidBody(maxv),
     mHitpoints(hitpoints)
@@ -54,4 +57,6 @@ void GameEntity::updateCurrent(sf::Time dt, GameCommandQueue&)
 {
     getDirectedVelocity(this->getRotation());
     move(mDirectedVelocity * dt.asSeconds());
+}
+
 }

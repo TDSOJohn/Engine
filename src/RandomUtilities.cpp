@@ -3,6 +3,9 @@
 #include <stdlib.h>
 
 
+namespace eng
+{
+
 std::vector<sf::Vector2u> randomWalk(int t0_x, int t0_y, int iter)
 {
     std::vector<sf::Vector2u> result;
@@ -22,4 +25,6 @@ std::vector<sf::Vector2u> randomWalk(int t0_x, int t0_y, int iter)
             result.push_back(sf::Vector2u(result.back() + sf::Vector2u(-1, 0)));
     }
     return result;
+}
+
 }

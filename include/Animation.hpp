@@ -13,6 +13,9 @@
 #include <SFML/System/Time.hpp>
 
 
+namespace eng
+{
+
 class Animation : public sf::Drawable, public sf::Transformable
 {
 public:
@@ -55,6 +58,6 @@ private:
     sf::Time                mElapsedTime;
     bool                    mRepeat;
 };
-
+}
 
 #endif /* Animation_hpp */

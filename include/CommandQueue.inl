@@ -6,6 +6,9 @@
 //  Copyright © 2021 Giovanni Basso. All rights reserved.
 //
 
+namespace eng
+{
+
 template <typename CommandType>
 void CommandQueue<CommandType>::push(const CommandType& command)
 {
@@ -24,4 +27,5 @@ template <typename CommandType>
 bool CommandQueue<CommandType>::isEmpty() const
 {
     return mQueue.empty();
+}
 }

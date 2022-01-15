@@ -16,6 +16,9 @@ namespace sf
     class Shader;
 }
 
+namespace eng
+{
+
 namespace Textures
 {
     enum ID
@@ -77,5 +80,6 @@ typedef ResourceHolder<sf::Font, Fonts::ID>         FontHolder;
 
 typedef ResourceHolder<sf::Shader, Shaders::ID>     ShaderHolder;
 
+}
 
 #endif /* ResourceIdentifiers_h */

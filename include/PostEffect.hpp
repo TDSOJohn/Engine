@@ -19,6 +19,9 @@ namespace sf
     class Shader;
 }
 
+namespace eng
+{
+
 class PostEffect : sf::NonCopyable
 {
     public:
@@ -31,5 +34,6 @@ class PostEffect : sf::NonCopyable
     protected:
         static void                 applyShader(const sf::Shader& shader, sf::RenderTarget& output);
 };
+}
 
 #endif /* PostEffect_hpp */

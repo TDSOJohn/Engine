@@ -23,6 +23,9 @@
 #include <utility>
 
 
+namespace eng
+{
+
 struct  Command;
 
 class SceneNode :   public sf::Transformable,
@@ -73,5 +76,6 @@ private:
 bool        collision(const SceneNode& lhs, const SceneNode& rhs);
 float       distance(const SceneNode& lhs, const SceneNode& rhs);
 
+}
 
 #endif /* Scenenode_hpp */

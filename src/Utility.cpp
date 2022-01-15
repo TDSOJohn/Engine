@@ -29,6 +29,9 @@ namespace
     auto RandomEngine = createRandomEngine();
 }
 
+namespace eng
+{
+
 unsigned int modulo(int value, int m)
 {
     if(m == 0)
@@ -235,4 +238,6 @@ Pixel inverse(const Pixel& in)
     res.g = 255 - in.g;
     res.b = 255 - in.b;
     return res;
+}
+
 }

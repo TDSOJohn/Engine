@@ -9,7 +9,7 @@
 #include "GUI/Component.hpp"
 
 
-namespace GUI
+namespace eng
 {
     Component::Component():
         mIsSelected(false),

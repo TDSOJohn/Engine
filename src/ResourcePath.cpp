@@ -1,6 +1,9 @@
 #include "ResourcePath.hpp"
 
 
+namespace eng
+{
+
 std::string getResourcePath()
 {
     std::stringstream ss;
@@ -22,4 +25,6 @@ std::string getResourcePath()
     #endif
 
     return ss.str();
+}
+
 }

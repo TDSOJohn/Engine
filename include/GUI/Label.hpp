@@ -17,7 +17,7 @@
 #include <SFML/Graphics/Text.hpp>
 
 
-namespace GUI
+namespace eng
 {
 
 class Label : public Component

@@ -18,6 +18,9 @@
 #include <cmath>
 
 
+namespace eng
+{
+
 SceneNode::SceneNode(Category::Type category):
     mChildren(),
     mParent(nullptr),
@@ -186,4 +189,6 @@ bool collision(const SceneNode& lhs, const SceneNode& rhs)
 float distance(const SceneNode& lhs, const SceneNode& rhs)
 {
     return length(lhs.getWorldPosition() - rhs.getWorldPosition());
+}
+
 }

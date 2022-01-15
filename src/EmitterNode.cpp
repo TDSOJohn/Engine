@@ -12,6 +12,10 @@
 #include "CommandIdentifiers.hpp"
 #include "Command.hpp"
 
+
+namespace eng
+{
+
 EmitterNode::EmitterNode(Particle::Type type):
     SceneNode(),
     mAccumulatedTime(sf::Time::Zero),
@@ -55,4 +59,6 @@ void EmitterNode::emitParticles(sf::Time dt)
         mAccumulatedTime -= interval;
         mParticleSystem->addParticle(getWorldPosition());
     }
+}
+
 }

@@ -7,6 +7,9 @@
 #include <sstream>
 
 
+namespace eng
+{
+
 InputField::InputField(FontHolder& fonts, Type type, const std::string& text):
     mType(type)
 {
@@ -84,4 +87,6 @@ void InputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(description, states);
     target.draw(inputRect, states);
     target.draw(inputText, states);
+}
+
 }

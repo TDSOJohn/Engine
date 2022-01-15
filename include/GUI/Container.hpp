@@ -15,14 +15,14 @@
 #include <memory>
 
 
-namespace GUI
+namespace eng
 {
 
 class Container : public Component
 {
     public:
         typedef std::shared_ptr<Container> Ptr;
-            
+
 
     public:
                             Container();

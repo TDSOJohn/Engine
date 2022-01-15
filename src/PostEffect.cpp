@@ -13,6 +13,9 @@
 #include <SFML/Graphics/VertexArray.hpp>
 
 
+namespace eng
+{
+
 PostEffect::~PostEffect()
 {
 }
@@ -37,4 +40,6 @@ void PostEffect::applyShader(const sf::Shader& shader, sf::RenderTarget& output)
 bool PostEffect::isSupported()
 {
     return sf::Shader::isAvailable();
+}
+
 }

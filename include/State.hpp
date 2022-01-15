@@ -23,6 +23,10 @@ namespace sf
     class RenderWindow;
 }
 
+
+namespace eng
+{
+
 class StateStack;
 class Player;
 
@@ -64,5 +68,7 @@ private:
     StateStack*                             mStack;
     Context                                 mContext;
 };
+
+}
 
 #endif /* State_hpp */

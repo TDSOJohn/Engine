@@ -9,6 +9,8 @@
 #ifndef Category_h
 #define Category_h
 
+namespace eng
+{
 // Entity/scene node category, used to dispatch commands
 namespace Category
 {
@@ -30,6 +32,6 @@ namespace Category
         Projectile = AlliedProjectile | EnemyProjectile | Missile,
     };
 }
-
+}
 
 #endif /* Category_h */

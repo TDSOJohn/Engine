@@ -9,6 +9,9 @@
 #include <cassert>
 
 
+namespace eng
+{
+
 class State;
 
 
@@ -34,6 +37,8 @@ StateCommand::Action                    derivedAction(Function fn)
         // Downcast node and invoke function on it
         fn(static_cast<StateObject&>(state), dt);
     };
+}
+
 }
 
 #endif

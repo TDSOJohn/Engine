@@ -18,8 +18,12 @@
 
 namespace
 {
-    const std::vector<ParticleData> Table;// = initializeParticleData();
+    const std::vector<eng::ParticleData> Table;// = initializeParticleData();
 }
+
+
+namespace eng
+{
 
 ParticleNode::ParticleNode(Particle::Type type, const TextureHolder& textures):
     SceneNode(),
@@ -109,4 +113,6 @@ void ParticleNode::computeVertices() const
         addVertex(pos.x + half.x, pos.y + half.y, size.x, size.y, color);
         addVertex(pos.x - half.x, pos.y + half.y, 0.f,    size.y, color);
     }
+}
+
 }

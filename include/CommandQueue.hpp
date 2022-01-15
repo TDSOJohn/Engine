@@ -14,6 +14,9 @@
 #include <queue>
 
 
+namespace eng
+{
+
 template <typename CommandType>
 class CommandQueue
 {
@@ -25,6 +28,7 @@ public:
 private:
     std::queue<CommandType>         mQueue;
 };
+}
 
 #include "CommandQueue.inl"
 #endif /* CommandQueue_hpp */

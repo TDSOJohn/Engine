@@ -13,6 +13,9 @@
 #include "Particle.hpp"
 
 
+namespace eng
+{
+
 class ParticleNode;
 
 class EmitterNode : public SceneNode
@@ -32,5 +35,6 @@ class EmitterNode : public SceneNode
         Particle::Type            mType;
         ParticleNode*            mParticleSystem;
 };
+}
 
 #endif /* EmitterNode_hpp */

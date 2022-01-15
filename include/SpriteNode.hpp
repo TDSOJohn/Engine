@@ -14,6 +14,9 @@
 #include <SFML/Graphics/Sprite.hpp>
 
 
+namespace eng
+{
+
 class SpriteNode : public SceneNode
 {
 public:
@@ -27,5 +30,6 @@ private:
     virtual void            drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 };
 
+}
 
 #endif /* SpriteNode_hpp */

@@ -9,8 +9,13 @@
 #include "Command.hpp"
 
 
+namespace eng
+{
+
 Command::Command() :
     action(),
     category(Category::None)
 {
+}
+
 }

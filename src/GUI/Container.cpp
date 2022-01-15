@@ -15,7 +15,7 @@
 #include <iostream>
 
 
-namespace GUI
+namespace eng
 {
 
 Container::Container():

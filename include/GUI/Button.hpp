@@ -23,7 +23,7 @@
 #include <functional>
 
 
-namespace GUI
+namespace eng
 {
 /// \class Button
 /// \brief Simple Button class.

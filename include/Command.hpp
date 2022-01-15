@@ -17,6 +17,9 @@
 #include <cassert>
 
 
+namespace eng
+{
+
 class SceneNode;
 
 
@@ -42,6 +45,7 @@ Command::Action                         derivedAction(Function fn)
         // Downcast node and invoke function on it
         fn(static_cast<GameObject&>(node), dt);
     };
+}
 }
 
 #endif /* Command_hpp */

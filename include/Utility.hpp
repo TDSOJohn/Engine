@@ -19,6 +19,10 @@ namespace sf
     class Text;
 }
 
+
+namespace eng
+{
+
 class Animation;
 
 /** @file */
@@ -76,5 +80,7 @@ std::vector<int>    generatePartition(int max_n, unsigned int parts);
 Pixel inverse(const Pixel& in);
 
 #include "Utility.inl"
+
+}
 
 #endif /* Utility_h */

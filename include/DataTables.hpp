@@ -18,6 +18,8 @@
 
 //class Spaceship;
 
+namespace eng
+{
 
 struct Direction
 {
@@ -62,5 +64,6 @@ struct ParticleData
     sf::Color               color;
     sf::Time                lifetime;
 };
+}
 
 #endif // datatables_hpp

@@ -28,6 +28,10 @@ namespace sf
     class RenderWindow;
 }
 
+
+namespace eng
+{
+
 class StateStack : private sf::NonCopyable
 {
 public:
@@ -86,6 +90,6 @@ void StateStack::registerState(States::ID stateID)
     };
 }
 
-
+}
 
 #endif /* StateStack_hpp */

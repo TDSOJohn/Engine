@@ -18,6 +18,9 @@
 #include <deque>
 
 
+namespace eng
+{
+
 class ParticleNode : public SceneNode
 {
     public:
@@ -44,7 +47,6 @@ class ParticleNode : public SceneNode
         mutable sf::VertexArray mVertexArray;
         mutable bool            mNeedsVertexUpdate;
 };
-
-
+}
 
 #endif /* ParticleNode_hpp */

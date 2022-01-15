@@ -17,6 +17,9 @@
 #include <SFML/Graphics/Font.hpp>
 
 
+namespace eng
+{
+
 class TextNode : public SceneNode
 {
     public:
@@ -33,5 +36,6 @@ class TextNode : public SceneNode
         sf::Text            mText;
 };
 
+}
 
 #endif /* TextNode_hpp */

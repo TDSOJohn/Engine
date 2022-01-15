@@ -5,6 +5,9 @@
 #include <SFML/Graphics/Transformable.hpp>
 
 
+namespace eng
+{
+
 class RigidBody
 {
 public:
@@ -39,5 +42,6 @@ protected:
     //  rotation in radians
     float                   mRotation;
 };
+}
 
 #endif

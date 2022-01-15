@@ -15,11 +15,15 @@
 #include <iostream>
 #include <sstream>
 
+namespace eng
+{
 
 //  If running on MacOS on Release mode, use CoreFoundation
 //  to fetch the correct path
 //  Otherwhise, simply use relative path to Resources folder
 std::string getResourcePath();
+
+}
 
 //Compile with:
 //      g++ --std=c++11 ResourcePath.cpp -framework CoreServices

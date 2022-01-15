@@ -12,6 +12,9 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 
 
+namespace eng
+{
+
 TextNode::TextNode(const FontHolder& fonts, const std::string& text)
 {
     mText.setFont(fonts.get(Fonts::Mono));
@@ -29,4 +32,6 @@ void TextNode::setString(const std::string& text)
 {
     mText.setString(text);
     centerOrigin(mText);
+}
+
 }

@@ -9,6 +9,10 @@
 #ifndef StateIdentifiers_h
 #define StateIdentifiers_h
 
+
+namespace eng
+{
+
 namespace States
 {
     enum ID
@@ -23,6 +27,8 @@ namespace States
         Settings,
         GameOver
     };
+}
+
 }
 
 #endif /* StateIdentifiers_h */

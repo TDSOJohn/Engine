@@ -1,6 +1,10 @@
 #ifndef coordinates_hpp
 #define coordinates_hpp
 
+
+namespace eng
+{
+
 struct Coordinates
 {
     int gridX, gridY;
@@ -27,5 +31,6 @@ struct Coordinates
         return (!(*this == other));
     }
 };
+}
 
 #endif //coordinate_hpp

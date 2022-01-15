@@ -4,6 +4,9 @@
 #include <cmath>
 
 
+namespace eng
+{
+
 RigidBody::RigidBody(float maxv):
     maxVelocity(maxv)
 {
@@ -53,4 +56,6 @@ float RigidBody::getMass() const
 sf::Vector2f RigidBody::getForce() const
 {
     return sf::Vector2f(mMass * mDirectedVelocity.x, mMass * mDirectedVelocity.y);
+}
+
 }

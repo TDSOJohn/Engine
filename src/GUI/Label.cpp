@@ -13,7 +13,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 
 
-namespace GUI
+namespace eng
 {
 
 Label::Label(const std::string& text, const FontHolder& fonts):

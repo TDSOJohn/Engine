@@ -11,6 +11,9 @@
 #include <cassert>
 
 
+namespace eng
+{
+
 StateStack::StateStack(State::Context context) :
     mStack(),
     mPendingList(),
@@ -106,5 +109,7 @@ StateStack::PendingChange::PendingChange(Action action, States::ID stateID):
     action(action),
     stateID(stateID)
 {
+
+}
 
 }

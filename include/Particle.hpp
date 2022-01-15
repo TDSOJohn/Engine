@@ -14,6 +14,9 @@
 #include <SFML/Graphics/Color.hpp>
 
 
+namespace eng
+{
+
 struct Particle
 {
     enum Type
@@ -27,6 +30,6 @@ struct Particle
     sf::Color       color;
     sf::Time        lifetime;
 };
-
+}
 
 #endif /* Particle_hpp */

@@ -15,7 +15,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 
 
-namespace GUI
+namespace eng
 {
 
 Button::Button(const FontHolder& fonts, const TextureHolder& textures):

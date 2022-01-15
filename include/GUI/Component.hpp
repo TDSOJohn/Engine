@@ -22,7 +22,7 @@ namespace sf
 }
 
 
-namespace GUI
+namespace eng
 {
     class Component:    public sf::Drawable,
                         public sf::Transformable,

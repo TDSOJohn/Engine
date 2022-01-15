@@ -5,6 +5,9 @@
 #include <iostream>
 
 
+namespace eng
+{
+
 TileMap::TileMap(const TextureHolder& textures, sf::FloatRect worldBounds):
     SceneNode(Category::Background),
     mWorldBounds(worldBounds),
@@ -80,4 +83,6 @@ void TileMap::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) con
 
     // draw the vertex array
     target.draw(mVertices, states);
+}
+
 }

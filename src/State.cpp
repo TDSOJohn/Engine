@@ -10,6 +10,9 @@
 #include "StateStack.hpp"
 
 
+namespace eng
+{
+
 State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, Player& player):
     window(&window),
     textures(&textures),
@@ -48,4 +51,6 @@ void State::requestStateClear()
 State::Context State::getContext() const
 {
     return mContext;
+}
+
 }

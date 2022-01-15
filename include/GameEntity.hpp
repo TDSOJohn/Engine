@@ -13,6 +13,9 @@
 #include "Physics/RigidBody.hpp"
 
 
+namespace eng
+{
+
 class GameEntity : public SceneNode, public RigidBody
 {
 public:
@@ -31,5 +34,6 @@ protected:
 protected:
     virtual void                updateCurrent(sf::Time dt, GameCommandQueue& commands);
 };
+}
 
 #endif /* GameEntity_hpp */
