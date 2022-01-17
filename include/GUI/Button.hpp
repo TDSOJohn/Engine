@@ -27,6 +27,8 @@ namespace eng
 {
 /// \class Button
 /// \brief Simple Button class.
+/// A Button can be togglable (maintains activation until manually deactivated).
+/// A Button::Activate() call on a togglable Button causes the texture to change.
 class Button : public Component
 {
 public:
@@ -59,20 +61,28 @@ public:
     /// \param flag A bool value containing the value to set the toggle to.
     void                    setToggle(bool flag);
 
-    /// \brief Get selectable value
-    /// \return A bool reppresenting if the button is selectable
+    /// \brief Check if the Button if selectable.
+    /// Override from Component::isSelectable.
+    /// \return Always returns true.
     virtual bool            isSelectable() const;
 
     /// \brief Toggle the selection
-    /// Calling this function selects the current GUI::Button
+    /// Calling this function selects the current Button
     virtual void            select();
 
     /// \brief Untoggle the selection
-    /// Calling this function deselects the current GUI::Button
+    /// Calling this function deselects the current Button
     virtual void            deselect();
 
+    /// \brief Activate the Button.
+    /// Calling this function activates the current Button.
+    /// This changes the Texture if setToggle has been set to true.
+    /// Otherwise, it immediately calls deactivate() automatically.
+    /// This triggers a callback call if a callback [std::function](https://en.cppreference.com/w/cpp/utility/functional/function) has been provided by a previous setCallback([std::function](https://en.cppreference.com/w/cpp/utility/functional/function)).
     virtual void            activate();
 
+    /// \brief Deactivate the Button
+    /// Calling this function deactivates the current Button (This changes the Texture)
     virtual void            deactivate();
 
     /// \brief Have the Button handle a sf::Event

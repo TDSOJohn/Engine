@@ -24,19 +24,37 @@ namespace sf
 
 namespace eng
 {
-    class Component:    public sf::Drawable,
-                        public sf::Transformable,
-                        public sf::NonCopyable
-    {
+
+/// \class Component
+/// \brief Simple virtual GUI Component class.
+/// Inherits from sf::Drawable, sf::Transformable, sf::NonCopyable
+class Component:    public sf::Drawable,
+                    public sf::Transformable,
+                    public sf::NonCopyable
+{
     public:
         typedef std::shared_ptr<Component> Ptr;
 
     public:
+        /// \brief Constructor.
+        /// The Component always starts deselected and deactivated.
                         Component();
         virtual         ~Component();
+
+        /// \brief Return true if the Component is selectable.
+        /// Override with the correct return value when inheriting.
         virtual bool    isSelectable() const = 0;
+
+        /// \brief Return true if the Component is selected.
+        /// Override with the correct return value when inheriting.
         bool            isSelected() const;
+
+        /// \brief Return true if the Component is selectable.
+        /// Override with the correct return value when inheriting.
         virtual void    select();
+
+        /// \brief Return true if the Component is selectable.
+        /// Override with the correct return value when inheriting.
         virtual void    deselect();
 
         virtual bool    isActive() const;
