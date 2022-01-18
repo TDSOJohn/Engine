@@ -5,12 +5,13 @@
 #include <SFML/Window/Event.hpp>
 
 #include "ResourceIdentifiers.hpp"
+#include "GUI/Component.hpp"
 
 
 namespace eng
 {
 
-class InputField : public sf::Drawable
+class InputField : public Component
 {
 public:
     enum Type
@@ -24,13 +25,13 @@ public:
     InputField(FontHolder& fonts, Type type, const std::string& text = "Default Text");
     ~InputField();
 
-    void handleEvent(sf::Event event);
-
     void setPosition(const sf::Vector2f& position);
     void setPosition(float px, float py);
 
     void setDefaultText(const std::string& str);
     void setDefaultText(int n);
+
+    void handleEvent(const sf::Event& event);
 
 private:
     std::string         inputString;

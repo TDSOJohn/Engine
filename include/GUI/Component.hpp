@@ -39,6 +39,7 @@ class Component:    public sf::Drawable,
         /// \brief Constructor.
         /// The Component always starts deselected and deactivated.
                         Component();
+                        
         virtual         ~Component();
 
         /// \brief Return true if the Component is selectable.
