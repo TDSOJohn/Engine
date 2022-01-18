@@ -14,10 +14,10 @@ make
 
 compile main and link to library with:
 ```
-g++ --std=c++11 main.cpp ./build/libengine.a
+g++ --std=c++17 main.cpp ./build/libengine.a
 ```
 
 Core Foundation is used to rethrieve the current folder path in Release mode (still simple copypasta from the noGravitar folder)
 ```
-g++ --std=c++11 main.cpp ./build/libengine.a -framework CoreServices
+g++ --std=c++17 main.cpp ./build/libengine.a -framework CoreServices
 ```
