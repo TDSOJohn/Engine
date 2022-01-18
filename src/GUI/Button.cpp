@@ -21,7 +21,7 @@ namespace eng
 Button::Button(const FontHolder& fonts, const TextureHolder& textures):
     mCallback(),
     mSprite(textures.get(Textures::Buttons)),
-    mText("", fonts.get(Fonts::Mono), 24),
+    mText("", fonts.get(Fonts::Mono), 18),
     mIsToggle(false)
 {
     changeTexture(Normal);

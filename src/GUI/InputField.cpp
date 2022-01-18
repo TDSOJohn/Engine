@@ -34,7 +34,7 @@ InputField::~InputField()
 {
 }
 
-void InputField::handleEvent(sf::Event event)
+void InputField::handleEvent(const sf::Event& event)
 {
     if(event.type == sf::Event::TextEntered)
     {
