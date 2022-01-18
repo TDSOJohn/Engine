@@ -2,7 +2,7 @@
 #define PROJECT_VERSION_MAJOR @engine_VERSION_MAJOR@
 #define PROJECT_VERSION_MINOR @engine_VERSION_MINOR@
 
-#define Debug   0
+//#define Debug   0
 #define Release 1
 
 #define Linux   2
