@@ -4,6 +4,7 @@
 
 #include "GUI/Container.hpp"
 #include "GUI/Button.hpp"
+#include "GUI/InputField.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -12,9 +13,9 @@
 #include <functional>
 
 
-void changeSize(sf::RenderWindow& window_in)
+void changeColor(sf::RectangleShape& rect_in)
 {
-    window_in.setSize(sf::Vector2u(rand()%640 + 640, rand()%360 + 360));
+    rect_in.setFillColor(sf::Color(rand()%256, rand()%256, rand()%256));
 }
 
 void randomNumber()
@@ -33,6 +34,9 @@ int main()
     //  Create sfml window and set framerate limit to 60
     sf::RenderWindow window(sf::VideoMode(1280, 720), "GUI window");
     window.setFramerateLimit(60.f);
+
+    sf::RectangleShape background(sf::Vector2f(1280, 720));
+    background.setFillColor(sf::Color(0, 0, 0));
 
     //  Create eng::TextureHolder and load the Button texture
     eng::TextureHolder text;
@@ -66,13 +70,18 @@ int main()
     //  Create a button, set its position, text and callback function
     auto button_3 = std::make_shared<eng::Button>(fonts, text);
     button_3->setPosition(100.f, 320.f);
-    button_3->setText("Window\nResize!");
+    button_3->setText("Change\nColor!");
     //  Use std::ref as a copyable reference wrapper to pass to changeSize
     //  See https://stackoverflow.com/questions/26187192/how-to-bind-function-to-an-object-by-reference
-    button_3->setCallback(std::bind(changeSize, std::ref(window)));
+    button_3->setCallback(std::bind(changeColor, std::ref(background)));
 
     //  Pack it inside the container
     mGUIContainer.pack(button_3);
+
+    auto input_1 = std::make_shared<eng::InputField>(fonts, text, eng::InputField::Chars, "Insert text here...");
+    input_1->setPosition(100.f, 440.f);
+
+    mGUIContainer.pack(input_1);
 
     while(window.isOpen())
     {
@@ -86,6 +95,7 @@ int main()
                 mGUIContainer.handleEvent(event);
         }
         window.clear();
+        window.draw(background);
         window.draw(mGUIContainer);
         window.display();
     }

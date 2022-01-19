@@ -57,23 +57,42 @@ void Container::handleEvent(const sf::Event& event)
         }
     } else if(event.type == sf::Event::MouseMoved)
     {
-        for(int i = 0; i < mChildren.size(); ++i)
+        int index = checkComponentIntersection(event.mouseMove.x, event.mouseMove.y);
+
+        if(index != -1)
         {
-            sf::FloatRect buttonBounds = mChildren[i]->getGlobalBounds();
-            sf::Vector2f pos = mChildren[i]->getPosition();
-            if( (buttonBounds.left + pos.x <= event.mouseMove.x) &&
-                (buttonBounds.left + buttonBounds.width + pos.x >= event.mouseMove.x) &&
-                (buttonBounds.top + pos.y <= event.mouseMove.y) &&
-                (buttonBounds.top + buttonBounds.height + pos.y >= event.mouseMove.y))
-            {
-                std::cout << "INSIDE" << std::endl;
-                //  If something else is selected, deselect it
-                if(hasSelection())
-                    select(mSelectedChild);
-                select(i);
-            }
+            //  If something else is selected, deselect it
+            if(hasSelection())
+                select(mSelectedChild);
+            select(index);            
+        }
+    } else if(event.type == sf::Event::MouseButtonPressed)
+    {
+        if(event.mouseButton.button == sf::Mouse::Left)
+        {
+            //  Get index of element being clicked in mChildren
+            int index = checkComponentIntersection(event.mouseButton.x, event.mouseButton.y);
+
+            //  If something else is selected, deselect it
+            if((index != -1) && (hasSelection()))
+                mChildren[mSelectedChild]->activate();
         }
     }
+}
+
+int Container::checkComponentIntersection(int x, int y)
+{
+    for(int i = 0; i < mChildren.size(); ++i)
+    {
+        sf::FloatRect buttonBounds = mChildren[i]->getGlobalBounds();
+        sf::Vector2f pos = mChildren[i]->getPosition();
+        if( (buttonBounds.left + pos.x <= x) &&
+            (buttonBounds.left + buttonBounds.width + pos.x >= x) &&
+            (buttonBounds.top + pos.y <= y) &&
+            (buttonBounds.top + buttonBounds.height + pos.y >= y))
+                return i;
+    }
+    return -1;
 }
 
 void Container::draw(sf::RenderTarget& target, sf::RenderStates states) const

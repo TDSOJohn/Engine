@@ -10,28 +10,41 @@
 namespace eng
 {
 
-InputField::InputField(FontHolder& fonts, Type type, const std::string& text):
-    mType(type)
+InputField::InputField(FontHolder& fonts, TextureHolder& textures, Filter Filter, const std::string& text):
+    mFilter(Filter),
+    mCallback(),
+    mSprite(textures.get(Textures::Buttons)),
+    description("", fonts.get(Fonts::Mono), 18),
+    mIsToggle(false),
+    mIsClickable(true)
 {
-    description.setFont(fonts.get(Fonts::Mono));
-    description.setCharacterSize(18);
-    description.setString(text);
     description.setFillColor(sf::Color::White);
 
     inputText.setFont(fonts.get(Fonts::Mono));
     inputText.setCharacterSize(18);
-    inputText.setString("");
+    inputText.setString(text);
     inputText.setFillColor(sf::Color::White);
 
-    inputRect.setSize(sf::Vector2f(140.f, 60.f));
-    inputRect.setPosition(60, 100);
-    inputRect.setFillColor(sf::Color::Black);
-    inputRect.setOutlineColor(sf::Color::Green);
-    inputRect.setOutlineThickness(5.f);
+    changeTexture(Normal);
+
+    sf::FloatRect bounds = mSprite.getLocalBounds();
+    inputText.setPosition(bounds.width / 2.f, bounds.height / 2.f);
 }
 
 InputField::~InputField()
 {
+}
+
+void InputField::select()
+{
+    Component::select();
+    changeTexture(Selected);
+}
+
+void InputField::deselect()
+{
+    Component::deselect();
+    changeTexture(Normal);
 }
 
 void InputField::handleEvent(const sf::Event& event)
@@ -39,12 +52,12 @@ void InputField::handleEvent(const sf::Event& event)
     if(event.type == sf::Event::TextEntered)
     {
         char input = static_cast<char>(event.text.unicode);
-        if(mType == Type::NumbersOnly || mType == Type::Chars)
+        if(mFilter == NumbersOnly || mFilter == Chars)
         {
             if(input >= 48 && input <= 57)
                 inputText.setString(inputText.getString() + input);
         }
-        if(mType == Type::LettersOnly || mType == Type::Chars)
+        if(mFilter == LettersOnly || mFilter == Chars)
         {
             if((input >= 65 && input <= 90) || (input >= 97 && input <= 122))
                 inputText.setString(inputText.getString() + input);
@@ -62,7 +75,7 @@ void InputField::setPosition(const sf::Vector2f& position)
 {
     description.setPosition(position);
     inputText.setPosition(position.x + 10.f, position.y + 60.f);
-    inputRect.setPosition(position.x, position.y + 60.f);
+    mSprite.setPosition(position.x, position.y + 60.f);
 }
 
 void InputField::setPosition(float px, float py)
@@ -84,9 +97,15 @@ void InputField::setDefaultText(int n)
 
 void InputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+    target.draw(mSprite, states);
     target.draw(description, states);
-    target.draw(inputRect, states);
     target.draw(inputText, states);
+}
+
+void InputField::changeTexture(Type buttonType)
+{
+    sf::IntRect textureRect(0, 72 * buttonType, 137, 72);
+    mSprite.setTextureRect(textureRect);
 }
 
 }

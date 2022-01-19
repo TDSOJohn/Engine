@@ -49,6 +49,8 @@ class Container : public Component
         /// NOT THE BEST WAY
         sf::FloatRect           getGlobalBounds() { return sf::FloatRect(0,0,0,0); }
 
+        int                     checkComponentIntersection(int x, int y);
+
     private:
         std::vector<Component::Ptr>        mChildren;
         int                                mSelectedChild;

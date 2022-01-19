@@ -14,16 +14,38 @@ namespace eng
 class InputField : public Component
 {
 public:
-    enum Type
+    typedef std::shared_ptr<InputField>     Ptr;
+    typedef std::function<void()>           Callback;
+
+    enum Filter
     {
         NumbersOnly,
         LettersOnly,
         Chars,
     };
 
+    enum Type
+    {
+        Normal,
+        Selected,
+        ButtonCount
+    };
+
 public:
-    InputField(FontHolder& fonts, Type type, const std::string& text = "Default Text");
+    InputField(FontHolder& fonts, TextureHolder& textures, Filter filter, const std::string& text = "Default Text");
     ~InputField();
+
+    /// \brief Return true if the Component is selectable.
+    /// Override with the correct return value when inheriting.
+    virtual bool    isSelectable() const { return 1; };
+
+    /// \brief Toggle the selection
+    /// Calling this function selects the current Button
+    virtual void            select();
+
+    /// \brief Untoggle the selection
+    /// Calling this function deselects the current Button
+    virtual void            deselect();
 
     void setPosition(const sf::Vector2f& position);
     void setPosition(float px, float py);
@@ -32,22 +54,29 @@ public:
     void setDefaultText(int n);
 
     /// \brief Return the local bounds of the Button Sprite.
-    sf::FloatRect           getLocalBounds() { return inputRect.getLocalBounds(); }
+    sf::FloatRect           getLocalBounds() { return mSprite.getLocalBounds(); }
 
     /// \brief Return the global bounds of the Button Sprite.
-    sf::FloatRect           getGlobalBounds() { return inputRect.getGlobalBounds(); }
+    sf::FloatRect           getGlobalBounds() { return mSprite.getGlobalBounds(); }
 
     void handleEvent(const sf::Event& event);
 
 private:
-    std::string         inputString;
-    sf::Text            description;
-    sf::Text            inputText;
-    sf::RectangleShape  inputRect;
+    std::string             inputString;
+    sf::Text                description;
+    sf::Text                inputText;
 
-    Type                mType;
+    Filter                    mFilter;
+
+    Callback                mCallback;
+    sf::Sprite              mSprite;
+
+    bool                    mIsToggle;
+    bool                    mIsClickable;
 
 private:
+    void                    changeTexture(Type buttonType);
+
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };
 }
