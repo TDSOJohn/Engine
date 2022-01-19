@@ -14,6 +14,6 @@ message(${CMAKE_BUILD_TYPE})
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../include/")
 
-add_executable(engine_test main.cpp)
+add_executable(engine_test coordinatesTest.cpp)
 
 target_link_libraries(engine_test "${CMAKE_CURRENT_SOURCE_DIR}/../build/libengine.a")

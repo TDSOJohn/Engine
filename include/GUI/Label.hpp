@@ -34,6 +34,11 @@ class Label : public Component
 
         virtual void        handleEvent(const sf::Event& event);
 
+        /// \brief Return the local bounds of the Button Sprite.
+        sf::FloatRect           getLocalBounds() { return mText.getLocalBounds(); }
+
+        /// \brief Return the global bounds of the Button Sprite.
+        sf::FloatRect           getGlobalBounds() { return mText.getGlobalBounds(); }
 
     private:
         void                draw(sf::RenderTarget& target, sf::RenderStates states) const;

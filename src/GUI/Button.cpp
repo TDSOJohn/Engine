@@ -46,6 +46,11 @@ void Button::setToggle(bool flag)
     mIsToggle = flag;
 }
 
+void Button::setClickable(bool flag)
+{
+    mIsClickable = flag;
+}
+
 bool Button::isSelectable() const
 {
     return true;

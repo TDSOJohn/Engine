@@ -31,6 +31,12 @@ public:
     void setDefaultText(const std::string& str);
     void setDefaultText(int n);
 
+    /// \brief Return the local bounds of the Button Sprite.
+    sf::FloatRect           getLocalBounds() { return inputRect.getLocalBounds(); }
+
+    /// \brief Return the global bounds of the Button Sprite.
+    sf::FloatRect           getGlobalBounds() { return inputRect.getGlobalBounds(); }
+
     void handleEvent(const sf::Event& event);
 
 private:

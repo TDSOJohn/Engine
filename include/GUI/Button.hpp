@@ -61,6 +61,10 @@ public:
     /// \param flag A bool value containing the value to set the toggle to.
     void                    setToggle(bool flag);
 
+    /// \brief Set clickable status of the Button.
+    /// \param flag True if the Button interacts with the mouse, false if not.
+    void                    setClickable(bool flag);
+
     /// \brief Check if the Button if selectable.
     /// Override from Component::isSelectable.
     /// \return Always returns true.
@@ -89,6 +93,11 @@ public:
     /// \param event A sf::Event as the input event to process
     virtual void            handleEvent(const sf::Event& event);
 
+    /// \brief Return the local bounds of the Button Sprite.
+    sf::FloatRect           getLocalBounds() { return mSprite.getLocalBounds(); }
+
+    /// \brief Return the global bounds of the Button Sprite.
+    sf::FloatRect           getGlobalBounds() { return mSprite.getGlobalBounds(); }
 
 private:
     virtual void            draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -98,7 +107,9 @@ private:
     Callback                mCallback;
     sf::Sprite              mSprite;
     sf::Text                mText;
+
     bool                    mIsToggle;
+    bool                    mIsClickable;
 };
 
 }

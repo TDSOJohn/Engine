@@ -9,7 +9,13 @@
 
 #include <iostream>
 #include <memory>
+#include <functional>
 
+
+void changeSize(sf::RenderWindow& window_in)
+{
+    window_in.setSize(sf::Vector2u(rand()%640 + 640, rand()%360 + 360));
+}
 
 void randomNumber()
 {
@@ -56,6 +62,17 @@ int main()
 
     //  Pack it inside the container
     mGUIContainer.pack(button_2);
+
+    //  Create a button, set its position, text and callback function
+    auto button_3 = std::make_shared<eng::Button>(fonts, text);
+    button_3->setPosition(100.f, 320.f);
+    button_3->setText("Window\nResize!");
+    //  Use std::ref as a copyable reference wrapper to pass to changeSize
+    //  See https://stackoverflow.com/questions/26187192/how-to-bind-function-to-an-object-by-reference
+    button_3->setCallback(std::bind(changeSize, std::ref(window)));
+
+    //  Pack it inside the container
+    mGUIContainer.pack(button_3);
 
     while(window.isOpen())
     {

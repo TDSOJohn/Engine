@@ -39,7 +39,7 @@ class Component:    public sf::Drawable,
         /// \brief Constructor.
         /// The Component always starts deselected and deactivated.
                         Component();
-                        
+
         virtual         ~Component();
 
         /// \brief Return true if the Component is selectable.
@@ -61,6 +61,12 @@ class Component:    public sf::Drawable,
         virtual bool    isActive() const;
         virtual void    activate();
         virtual void    deactivate();
+
+        /// \brief Return the local bounds of the Button Sprite.
+        virtual sf::FloatRect           getLocalBounds() = 0;
+
+        /// \brief Return the global bounds of the Button Sprite.
+        virtual sf::FloatRect           getGlobalBounds() = 0;
 
         virtual void    handleEvent(const sf::Event& event) = 0;
 

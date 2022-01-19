@@ -55,6 +55,24 @@ void Container::handleEvent(const sf::Event& event)
             if(hasSelection())
                 mChildren[mSelectedChild]->activate();
         }
+    } else if(event.type == sf::Event::MouseMoved)
+    {
+        for(int i = 0; i < mChildren.size(); ++i)
+        {
+            sf::FloatRect buttonBounds = mChildren[i]->getGlobalBounds();
+            sf::Vector2f pos = mChildren[i]->getPosition();
+            if( (buttonBounds.left + pos.x <= event.mouseMove.x) &&
+                (buttonBounds.left + buttonBounds.width + pos.x >= event.mouseMove.x) &&
+                (buttonBounds.top + pos.y <= event.mouseMove.y) &&
+                (buttonBounds.top + buttonBounds.height + pos.y >= event.mouseMove.y))
+            {
+                std::cout << "INSIDE" << std::endl;
+                //  If something else is selected, deselect it
+                if(hasSelection())
+                    select(mSelectedChild);
+                select(i);
+            }
+        }
     }
 }
 
