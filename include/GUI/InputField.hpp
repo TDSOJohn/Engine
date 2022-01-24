@@ -28,6 +28,7 @@ public:
     {
         Normal,
         Selected,
+        Pressed,
         ButtonCount
     };
 
@@ -46,6 +47,10 @@ public:
     /// \brief Untoggle the selection
     /// Calling this function deselects the current Button
     virtual void            deselect();
+
+    virtual void            activate();
+
+    virtual void            deactivate();
 
     void setPosition(const sf::Vector2f& position);
     void setPosition(float px, float py);
@@ -66,7 +71,7 @@ private:
     sf::Text                description;
     sf::Text                inputText;
 
-    Filter                    mFilter;
+    Filter                  mFilter;
 
     Callback                mCallback;
     sf::Sprite              mSprite;

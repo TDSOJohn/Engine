@@ -70,7 +70,7 @@ class Component:    public sf::Drawable,
 
         virtual void    handleEvent(const sf::Event& event) = 0;
 
-    private:
+    protected:
         bool mIsSelected;
         bool mIsActive;
 };

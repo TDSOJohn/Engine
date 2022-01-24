@@ -37,9 +37,17 @@ class Container : public Component
         virtual void        draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
         bool                hasSelection() const;
+
+        /// \brief Select a child
+        /// - Checks if child is selectable,
+        /// - deselects previous child
+        /// - selects new one
         void                select(std::size_t index);
         void                selectNext();
         void                selectPrevious();
+
+        bool                hasActive();
+        void                activate(std::size_t index);
 
         /// \brief Return the local bounds of the Button Sprite.
         /// NOT THE BEST WAY
@@ -54,6 +62,7 @@ class Container : public Component
     private:
         std::vector<Component::Ptr>        mChildren;
         int                                mSelectedChild;
+        int                                mActiveChild;
 };
 
 }

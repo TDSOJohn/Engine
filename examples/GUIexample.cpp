@@ -51,7 +51,7 @@ int main()
 
     //  Create a button, set its position, text and callback function
     auto button_1 = std::make_shared<eng::Button>(fonts, text);
-    button_1->setPosition(100.f, 80.f);
+    button_1->setPosition(100.f, 100.f);
     button_1->setText("Random\nNumber!");
     button_1->setCallback(randomNumber);
 
@@ -60,26 +60,17 @@ int main()
 
     //  Create a button, set its position, text and callback function
     auto button_2 = std::make_shared<eng::Button>(fonts, text);
-    button_2->setPosition(100.f, 200.f);
-    button_2->setText("Something\nelse!");
-    button_2->setCallback(notSoRandom);
+    button_2->setPosition(100.f, 250.f);
+    button_2->setText("Change\nColor!");
+    //  Use std::ref as a copyable reference wrapper to pass to changeSize
+    //  See https://stackoverflow.com/questions/26187192/how-to-bind-function-to-an-object-by-reference
+    button_2->setCallback(std::bind(changeColor, std::ref(background)));
 
     //  Pack it inside the container
     mGUIContainer.pack(button_2);
 
-    //  Create a button, set its position, text and callback function
-    auto button_3 = std::make_shared<eng::Button>(fonts, text);
-    button_3->setPosition(100.f, 320.f);
-    button_3->setText("Change\nColor!");
-    //  Use std::ref as a copyable reference wrapper to pass to changeSize
-    //  See https://stackoverflow.com/questions/26187192/how-to-bind-function-to-an-object-by-reference
-    button_3->setCallback(std::bind(changeColor, std::ref(background)));
-
-    //  Pack it inside the container
-    mGUIContainer.pack(button_3);
-
     auto input_1 = std::make_shared<eng::InputField>(fonts, text, eng::InputField::Chars, "Insert text here...");
-    input_1->setPosition(100.f, 440.f);
+    input_1->setPosition(100.f, 500.f);
 
     mGUIContainer.pack(input_1);
 

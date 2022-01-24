@@ -15,7 +15,7 @@ InputField::InputField(FontHolder& fonts, TextureHolder& textures, Filter Filter
     mCallback(),
     mSprite(textures.get(Textures::Buttons)),
     description("", fonts.get(Fonts::Mono), 18),
-    mIsToggle(false),
+    mIsToggle(true),
     mIsClickable(true)
 {
     description.setFillColor(sf::Color::White);
@@ -38,13 +38,45 @@ InputField::~InputField()
 void InputField::select()
 {
     Component::select();
-    changeTexture(Selected);
+    if(!mIsActive)
+        changeTexture(Selected);
 }
 
 void InputField::deselect()
 {
     Component::deselect();
-    changeTexture(Normal);
+    if(!mIsActive)
+        changeTexture(Normal);
+}
+
+void InputField::activate()
+{
+    Component::activate();
+
+    // If we are toggle then we should show that the button is pressed and thus "toggled".
+    if (mIsToggle)
+        changeTexture(Pressed);
+
+    if (mCallback)
+        mCallback();
+
+    // If we are not a toggle then deactivate the button since we are just momentarily activated.
+    if (!mIsToggle)
+        deactivate();
+}
+
+void InputField::deactivate()
+{
+    Component::deactivate();
+
+    if (mIsToggle)
+    {
+        // Reset texture to right one depending on if we are selected or not.
+        if (isSelected())
+            changeTexture(Selected);
+        else
+            changeTexture(Normal);
+    }
 }
 
 void InputField::handleEvent(const sf::Event& event)
@@ -63,11 +95,16 @@ void InputField::handleEvent(const sf::Event& event)
                 inputText.setString(inputText.getString() + input);
         }
     }
-    else if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Backspace)
+    else if(event.type == sf::Event::KeyPressed)
     {
-        std::string temp = inputText.getString();
-        temp.pop_back();
-        inputText.setString(temp);
+        switch(event.key.code)
+        {
+            case sf::Keyboard::Backspace:
+                std::string temp = inputText.getString();
+                temp.pop_back();
+                inputText.setString(temp);
+                break;
+        }
     }
 }
 
