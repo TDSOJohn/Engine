@@ -7,7 +7,7 @@
 //
 
 #include "ParticleNode.hpp"
-#include "DataTables.hpp"
+//#include "DataTables.hpp"
 #include "ResourceHolder.hpp"
 
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -16,9 +16,16 @@
 #include <algorithm>
 
 
+
 namespace
 {
-    const std::vector<eng::ParticleData> Table;// = initializeParticleData();
+    struct ParticleData
+    {
+        sf::Color               color;
+        sf::Time                lifetime;
+    };
+
+    const std::vector<ParticleData> Table;// = initializeParticleData();
 }
 
 
