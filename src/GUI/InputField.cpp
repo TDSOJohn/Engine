@@ -78,7 +78,6 @@ void InputField::deactivate()
 
 void InputField::handleEvent(const sf::Event& event)
 {
-    std::cout << inputText.getString().toAnsiString() << std::endl;
     if(event.type == sf::Event::TextEntered)
     {
         char input = static_cast<char>(event.text.unicode);

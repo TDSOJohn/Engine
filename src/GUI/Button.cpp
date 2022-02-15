@@ -75,7 +75,6 @@ void Button::activate()
 
     if(mCallback)
         mCallback();
-//    std::cout << mIsActive << " " << mIsTogglable << std::endl;
 }
 
 void Button::deactivate()

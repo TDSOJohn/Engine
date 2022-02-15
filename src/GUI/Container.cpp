@@ -97,7 +97,10 @@ void Container::handleEvent(const sf::Event& event)
             int index = checkComponentIntersection(event.mouseButton.x, event.mouseButton.y);
 
             if(index != -1)
+            {
                 activate(index);
+                select(index);
+            }
         } else if(event.type == sf::Event::KeyReleased)
         {
             if( event.key.code == sf::Keyboard::W
@@ -136,7 +139,6 @@ void Container::handleEvent(const sf::Event& event)
                 select(0);
         }
     }
-std::cout << mSelectedChild << "\t" << mActiveChild << std::endl;
 }
 
 int Container::checkComponentIntersection(int x, int y)
@@ -220,7 +222,6 @@ void Container::activate(std::size_t index)
     if(hasActive())
         mChildren[mActiveChild]->deactivate();
     mChildren[index]->activate();
-    std::cout << mChildren[index]->isTogglable() << std::endl;
     if(mChildren[index]->isTogglable())
         mActiveChild = index;
 }
