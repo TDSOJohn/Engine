@@ -27,10 +27,10 @@ elseif(APPLE)
     include_directories("/usr/local/include/")
 endif()
 
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../include/")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../../include/")
 
 add_executable(gui_example GUIexample.cpp)
 
-target_link_libraries(gui_example "${CMAKE_CURRENT_SOURCE_DIR}/../build/libengine.a")
+target_link_libraries(gui_example "${CMAKE_CURRENT_SOURCE_DIR}/../../build/libengine.a")
 # Link executable to required SFML libraries
 target_link_libraries(gui_example sfml-graphics sfml-audio sfml-network sfml-window sfml-system)
