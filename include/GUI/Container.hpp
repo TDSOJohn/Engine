@@ -49,11 +49,11 @@ class Container : public Component
         bool                hasActive();
         void                activate(std::size_t index);
 
-        /// \brief Return the local bounds of the Button Sprite.
+        /// \brief Return the local bounds of the Container.
         /// NOT THE BEST WAY
         sf::FloatRect           getLocalBounds() { return sf::FloatRect(0,0,0,0); }
 
-        /// \brief Return the global bounds of the Button Sprite.
+        /// \brief Return the global bounds of the Container.
         /// NOT THE BEST WAY
         sf::FloatRect           getGlobalBounds() { return sf::FloatRect(0,0,0,0); }
 

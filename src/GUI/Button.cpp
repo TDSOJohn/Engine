@@ -14,6 +14,8 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+#include <iostream>
+
 
 namespace eng
 {
@@ -21,8 +23,7 @@ namespace eng
 Button::Button(const FontHolder& fonts, const TextureHolder& textures):
     mCallback(),
     mSprite(textures.get(Textures::Buttons)),
-    mText("", fonts.get(Fonts::Mono), 18),
-    mIsToggle(false)
+    mText("", fonts.get(Fonts::Mono), 18)
 {
     changeTexture(Normal);
 
@@ -39,11 +40,6 @@ void Button::setText(const std::string& text)
 {
     mText.setString(text);
     centerOrigin(mText);
-}
-
-void Button::setToggle(bool flag)
-{
-    mIsToggle = flag;
 }
 
 void Button::setClickable(bool flag)
@@ -74,25 +70,22 @@ void Button::activate()
 {
     Component::activate();
     // If we are toggle then we should show that the button is pressed and thus "toggled".
-    if (mIsToggle)
+    if(mIsTogglable)
         changeTexture(Pressed);
 
-    if (mCallback)
+    if(mCallback)
         mCallback();
-
-    // If we are not a toggle then deactivate the button since we are just momentarily activated.
-    if (!mIsToggle)
-        deactivate();
+//    std::cout << mIsActive << " " << mIsTogglable << std::endl;
 }
 
 void Button::deactivate()
 {
     Component::deactivate();
 
-    if (mIsToggle)
+    if(mIsTogglable)
     {
         // Reset texture to right one depending on if we are selected or not.
-        if (isSelected())
+        if(isSelected())
             changeTexture(Selected);
         else
             changeTexture(Normal);

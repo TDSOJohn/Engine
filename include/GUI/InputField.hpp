@@ -38,7 +38,7 @@ public:
 
     /// \brief Return true if the Component is selectable.
     /// Override with the correct return value when inheriting.
-    virtual bool    isSelectable() const { return 1; };
+    virtual bool            isSelectable() const { return 1; };
 
     /// \brief Toggle the selection
     /// Calling this function selects the current Button
@@ -52,11 +52,11 @@ public:
 
     virtual void            deactivate();
 
-    void setPosition(const sf::Vector2f& position);
-    void setPosition(float px, float py);
+    void                    setPosition(const sf::Vector2f& position);
+    void                    setPosition(float px, float py);
 
-    void setDefaultText(const std::string& str);
-    void setDefaultText(int n);
+    void                    setDefaultText(const std::string& str);
+    void                    setDefaultText(int n);
 
     /// \brief Return the local bounds of the Button Sprite.
     sf::FloatRect           getLocalBounds() { return mSprite.getLocalBounds(); }
@@ -64,7 +64,7 @@ public:
     /// \brief Return the global bounds of the Button Sprite.
     sf::FloatRect           getGlobalBounds() { return mSprite.getGlobalBounds(); }
 
-    void handleEvent(const sf::Event& event);
+    void                    handleEvent(const sf::Event& event);
 
 private:
     std::string             inputString;
@@ -76,7 +76,6 @@ private:
     Callback                mCallback;
     sf::Sprite              mSprite;
 
-    bool                    mIsToggle;
     bool                    mIsClickable;
 
 private:

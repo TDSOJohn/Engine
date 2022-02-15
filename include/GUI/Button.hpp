@@ -57,10 +57,6 @@ public:
     /// \param text A std::string containing the text.
     void                    setText(const std::string& text);
 
-    /// \brief Set toggle status of the button.
-    /// \param flag A bool value containing the value to set the toggle to.
-    void                    setToggle(bool flag);
-
     /// \brief Set clickable status of the Button.
     /// \param flag True if the Button interacts with the mouse, false if not.
     void                    setClickable(bool flag);
@@ -108,7 +104,6 @@ private:
     sf::Sprite              mSprite;
     sf::Text                mText;
 
-    bool                    mIsToggle;
     bool                    mIsClickable;
 };
 

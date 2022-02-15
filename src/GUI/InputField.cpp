@@ -11,13 +11,14 @@ namespace eng
 {
 
 InputField::InputField(FontHolder& fonts, TextureHolder& textures, Filter Filter, const std::string& text):
+    Component(),
     mFilter(Filter),
     mCallback(),
     mSprite(textures.get(Textures::Buttons)),
     description("", fonts.get(Fonts::Mono), 18),
-    mIsToggle(true),
     mIsClickable(true)
 {
+    Component::setToggle(true);
     description.setFillColor(sf::Color::White);
 
     inputText.setFont(fonts.get(Fonts::Mono));
@@ -54,22 +55,18 @@ void InputField::activate()
     Component::activate();
 
     // If we are toggle then we should show that the button is pressed and thus "toggled".
-    if (mIsToggle)
+    if (mIsTogglable)
         changeTexture(Pressed);
 
     if (mCallback)
         mCallback();
-
-    // If we are not a toggle then deactivate the button since we are just momentarily activated.
-    if (!mIsToggle)
-        deactivate();
 }
 
 void InputField::deactivate()
 {
     Component::deactivate();
 
-    if (mIsToggle)
+    if (mIsTogglable)
     {
         // Reset texture to right one depending on if we are selected or not.
         if (isSelected())
@@ -81,6 +78,7 @@ void InputField::deactivate()
 
 void InputField::handleEvent(const sf::Event& event)
 {
+    std::cout << inputText.getString().toAnsiString() << std::endl;
     if(event.type == sf::Event::TextEntered)
     {
         char input = static_cast<char>(event.text.unicode);

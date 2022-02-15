@@ -38,41 +38,47 @@ class Component:    public sf::Drawable,
     public:
         /// \brief Constructor.
         /// The Component always starts deselected and deactivated.
-                        Component();
+                                Component();
 
-        virtual         ~Component();
+        virtual                 ~Component();
 
         /// \brief Return true if the Component is selectable.
         /// Override with the correct return value when inheriting.
-        virtual bool    isSelectable() const = 0;
+        virtual bool            isSelectable() const = 0;
 
+        /// \brief Set if component it togglable.
+        /// \param flag A bool value containing the value to set the internal togglable flag to.
+        void                    setToggle(bool flag);
+
+        bool                    isTogglable() { return mIsTogglable; }
         /// \brief Return true if the Component is selected.
         /// Override with the correct return value when inheriting.
-        bool            isSelected() const;
+        bool                    isSelected() const;
 
         /// \brief Return true if the Component is selectable.
         /// Override with the correct return value when inheriting.
-        virtual void    select();
+        virtual void            select();
 
         /// \brief Return true if the Component is selectable.
         /// Override with the correct return value when inheriting.
-        virtual void    deselect();
+        virtual void            deselect();
 
-        virtual bool    isActive() const;
-        virtual void    activate();
-        virtual void    deactivate();
+        virtual bool            isActive() const;
+        virtual void            activate();
+        virtual void            deactivate();
 
         /// \brief Return the local bounds of the Button Sprite.
-        virtual sf::FloatRect           getLocalBounds() = 0;
+        virtual sf::FloatRect   getLocalBounds() = 0;
 
         /// \brief Return the global bounds of the Button Sprite.
-        virtual sf::FloatRect           getGlobalBounds() = 0;
+        virtual sf::FloatRect   getGlobalBounds() = 0;
 
-        virtual void    handleEvent(const sf::Event& event) = 0;
+        virtual void            handleEvent(const sf::Event& event) = 0;
 
     protected:
-        bool mIsSelected;
-        bool mIsActive;
+        bool                    mIsTogglable;
+        bool                    mIsSelected;
+        bool                    mIsActive;
 };
 
 }

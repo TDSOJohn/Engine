@@ -39,30 +39,8 @@ bool Container::isSelectable() const
 
 void Container::handleEvent(const sf::Event& event)
 {
-    if(event.type == sf::Event::MouseButtonPressed)
-    {
-        if(event.mouseButton.button == sf::Mouse::Left)
-        {
-            if (mActiveChild != -1)
-                mChildren[mActiveChild]->deactivate();
-            //  Get index of element being clicked in mChildren
-            int index = checkComponentIntersection(event.mouseButton.x, event.mouseButton.y);
-
-            //  If button is pressed inside a Component, activate it
-            if((index != -1))
-            {
-                if(mChildren[index]->isActive())
-                {
-                    mChildren[index]->deactivate();
-                    mActiveChild = -1;
-                } else
-                {
-                    mChildren[index]->activate();
-                    mActiveChild = index;
-                }
-            }
-        }
-    } else if(event.type == sf::Event::MouseMoved)
+    //  Mouse movement hover doesn't depend on the Container state and is always active
+    if(event.type == sf::Event::MouseMoved)
     {
         int index = checkComponentIntersection(event.mouseMove.x, event.mouseMove.y);
 
@@ -74,32 +52,91 @@ void Container::handleEvent(const sf::Event& event)
                 select(mSelectedChild);
             select(index);
         }
-    } else if(event.type == sf::Event::KeyReleased)
+    }
+    //  If something is active
+    else if(hasActive())
     {
-        if(event.key.code == sf::Keyboard::Return || event.key.code == sf::Keyboard::Space)
+        //  If a mouse button is pressed
+        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
         {
-            if(hasSelection())
+            mChildren[mActiveChild]->deactivate();
+            mChildren[mSelectedChild]->deselect();
+            mActiveChild = -1;
+            mSelectedChild = -1;
+
+            //  Get index of element being clicked in mChildren
+            int index = checkComponentIntersection(event.mouseButton.x, event.mouseButton.y);
+
+            //  If button is pressed inside a Component, activate it
+            if(index != -1)
             {
-                mChildren[mSelectedChild]->activate();
-                mActiveChild = mSelectedChild;
+                select(index);
+                activate(index);
             }
         }
+        else if(event.type == sf::Event::KeyReleased)
+        {
+            if( event.key.code == sf::Keyboard::Return
+                || event.key.code == sf::Keyboard::Space
+                || event.key.code == sf::Keyboard::Escape)
+            {
+                mChildren[mActiveChild]->deactivate();
+                mActiveChild = -1;
+            }
+        }
+        else
+            mChildren[mActiveChild]->handleEvent(event);
     }
-
-    else if(hasSelection() && hasActive())
-        mChildren[mActiveChild]->handleEvent(event);
-
-    else if(event.type == sf::Event::KeyReleased)
+    //  If nothing is active but something is selected
+    else if(!hasActive() && mSelectedChild != -1)
     {
-        if( event.key.code == sf::Keyboard::W
+        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+        {
+            mChildren[mSelectedChild]->deselect();
+            mSelectedChild = -1;
+            int index = checkComponentIntersection(event.mouseButton.x, event.mouseButton.y);
+
+            if(index != -1)
+                activate(index);
+        } else if(event.type == sf::Event::KeyReleased)
+        {
+            if( event.key.code == sf::Keyboard::W
                 || event.key.code == sf::Keyboard::Up
                 || event.key.code == sf::Keyboard::Left)
-            selectPrevious();
-        else if(event.key.code == sf::Keyboard::S
+                selectPrevious();
+
+            if( event.key.code == sf::Keyboard::S
                 || event.key.code == sf::Keyboard::Down
                 || event.key.code == sf::Keyboard::Right)
-            selectNext();
+                selectNext();
+
+            if(event.key.code == sf::Keyboard::Return || event.key.code == sf::Keyboard::Space)
+                activate(mSelectedChild);
+        }
     }
+    //  If nothing is active or selected
+    else
+    {
+        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+        {
+            int index = checkComponentIntersection(event.mouseButton.x, event.mouseButton.y);
+
+            if(index != -1)
+                select(index);
+        } else if(event.type == sf::Event::KeyReleased)
+        {
+            if( event.key.code == sf::Keyboard::W
+                || event.key.code == sf::Keyboard::Up
+                || event.key.code == sf::Keyboard::Left)
+                select(0);
+
+            if( event.key.code == sf::Keyboard::S
+                || event.key.code == sf::Keyboard::Down
+                || event.key.code == sf::Keyboard::Right)
+                select(0);
+        }
+    }
+std::cout << mSelectedChild << "\t" << mActiveChild << std::endl;
 }
 
 int Container::checkComponentIntersection(int x, int y)
@@ -183,7 +220,9 @@ void Container::activate(std::size_t index)
     if(hasActive())
         mChildren[mActiveChild]->deactivate();
     mChildren[index]->activate();
-    mActiveChild = index;
+    std::cout << mChildren[index]->isTogglable() << std::endl;
+    if(mChildren[index]->isTogglable())
+        mActiveChild = index;
 }
 
 }
