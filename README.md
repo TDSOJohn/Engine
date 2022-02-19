@@ -1,4 +1,5 @@
-
+A simple game engine that uses [SFML](https://www.sfml-dev.org).</br>
+It all started by trying to extract a somehow functioning Engine from the [SFML game dev book's code](https://github.com/SFML/SFML-Game-Development-Book).</br>
 Compile with:
 ```bash
 mkdir build
@@ -13,7 +14,7 @@ Compile main and link to library with:
 g++ --std=c++17 main.cpp ./build/libengine.a
 ```
 
-Core Foundation is used to rethrieve the current folder path in Release mode on macOS, add link to CoreServices framework.
+Core Foundation is used to retrieve the current folder path in Release mode on macOS, add link to CoreServices framework.
 ```
 g++ --std=c++17 main.cpp ./build/libengine.a -framework CoreServices
 ```

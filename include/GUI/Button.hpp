@@ -32,9 +32,13 @@ namespace eng
 class Button : public Component
 {
 public:
+    /// Create std::shared_ptr<Button> with Button::Ptr syntax.
     typedef std::shared_ptr<Button>     Ptr;
     typedef std::function<void()>       Callback;
 
+    /// <table><tr><th>Normal</th><th>Button has normal texture</tr>
+    /// <tr><th>Selected</th><th>Button has selected texture</tr>
+    /// <tr><th>Pressed</th><th>Button has active texture, Callback is called</tr></table>
     enum Type
     {
         Normal,

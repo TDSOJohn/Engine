@@ -12,20 +12,16 @@
 #include <memory>
 #include <functional>
 
-
+//  A simple function that changes the color of the input sf::RectangleShape to random values
 void changeColor(sf::RectangleShape& rect_in)
 {
     rect_in.setFillColor(sf::Color(rand()%256, rand()%256, rand()%256));
 }
 
+//  A simple function that prints a 0..99 random number to the std output
 void randomNumber()
 {
     std::cout << rand()%100 << std::endl;
-}
-
-void notSoRandom()
-{
-    std::cout << 420 << std::endl;
 }
 
 
@@ -35,6 +31,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1280, 720), "GUI window");
     window.setFramerateLimit(60.f);
 
+    //  Create the background rectangle (we'll change its color later)
     sf::RectangleShape background(sf::Vector2f(1280, 720));
     background.setFillColor(sf::Color(0, 0, 0));
 
@@ -46,7 +43,7 @@ int main()
     eng::FontHolder fonts;
     fonts.load(eng::Fonts::Mono, eng::getResourcePath() + "Fonts/IBMPlexMono-Regular.ttf");
 
-    //  Create the GUI container to back buttons in
+    //  Create the GUI container to store GUI elements in
     eng::Container mGUIContainer;
 
     //  Create a button, set its position, text and callback function
@@ -69,9 +66,11 @@ int main()
     //  Pack it inside the container
     mGUIContainer.pack(button_2);
 
+    //  Create an input field, set its position
     auto input_1 = std::make_shared<eng::InputField>(fonts, text, eng::InputField::Chars, "Insert text here...");
     input_1->setPosition(100.f, 500.f);
 
+    //  Pack it inside the container
     mGUIContainer.pack(input_1);
 
     while(window.isOpen())
@@ -86,7 +85,9 @@ int main()
                 mGUIContainer.handleEvent(event);
         }
         window.clear();
+        //  Draw the background
         window.draw(background);
+        //  Draw the container
         window.draw(mGUIContainer);
         window.display();
     }

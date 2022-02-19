@@ -10,13 +10,20 @@
 
 namespace eng
 {
-
+/// \class InputField
+/// \brief Simple input field class.
+/// When selected, the input field allows for user text to be entered.
+/// Filtering can be applied, too: numbers only, letters only or all chars.
 class InputField : public Component
 {
 public:
+    /// Create std::shared_ptr<InputField> with InputField::Ptr syntax.
     typedef std::shared_ptr<InputField>     Ptr;
     typedef std::function<void()>           Callback;
 
+    /// <table><tr><th>NumbersOnly</th><th>Only chars 48..57 are allowed</tr>
+    /// <tr><th>LettersOnly</th><th>Only chars 65..90 and 97..122 are allowed</tr>
+    /// <tr><th>Chars</th><th>All chars are allowed</tr></table>
     enum Filter
     {
         NumbersOnly,
@@ -24,6 +31,9 @@ public:
         Chars,
     };
 
+    /// <table><tr><th>Normal</th><th>Input field has normal texture, no input is handled</tr>
+    /// <tr><th>Selected</th><th>Input field has selected texture, no input is handled</tr>
+    /// <tr><th>Pressed</th><th>Input field has active texture, input is handled</tr></table>
     enum Type
     {
         Normal,
@@ -33,7 +43,7 @@ public:
     };
 
 public:
-    InputField(FontHolder& fonts, TextureHolder& textures, Filter filter, const std::string& text = "Default Text");
+    InputField(FontHolder& fonts, TextureHolder& textures, Filter filter = Chars, const std::string& text = "Default Text");
     ~InputField();
 
     /// \brief Return true if the Component is selectable.
@@ -68,7 +78,6 @@ public:
 
 private:
     std::string             inputString;
-    sf::Text                description;
     sf::Text                inputText;
 
     Filter                  mFilter;

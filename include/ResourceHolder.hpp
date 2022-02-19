@@ -9,7 +9,7 @@
 #ifndef ResourceHolder_hpp
 #define ResourceHolder_hpp
 
-#include <map>
+#include <unordered_map>
 #include <string>
 #include <memory>
 #include <stdexcept>
@@ -33,11 +33,9 @@ public:
 
 private:
     void                insertResource(Identifier id, std::unique_ptr<Resource> resource);
+
 private:
-    //  std::unique_ptr for automatic deletion on pointer out of scope
-    //  or unique_ptr assignement to other pointer
-    //  ownership is transferred, never shared
-    std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
+    std::unordered_map<Identifier, std::unique_ptr<Resource>> mResourceMap;
 };
 }
 

@@ -15,11 +15,9 @@ InputField::InputField(FontHolder& fonts, TextureHolder& textures, Filter Filter
     mFilter(Filter),
     mCallback(),
     mSprite(textures.get(Textures::Buttons)),
-    description("", fonts.get(Fonts::Mono), 18),
     mIsClickable(true)
 {
     Component::setToggle(true);
-    description.setFillColor(sf::Color::White);
 
     inputText.setFont(fonts.get(Fonts::Mono));
     inputText.setCharacterSize(18);
@@ -107,9 +105,8 @@ void InputField::handleEvent(const sf::Event& event)
 
 void InputField::setPosition(const sf::Vector2f& position)
 {
-    description.setPosition(position);
-    inputText.setPosition(position.x + 10.f, position.y + 60.f);
-    mSprite.setPosition(position.x, position.y + 60.f);
+    inputText.setPosition(position.x + 10.f, position.y);
+    mSprite.setPosition(position.x, position.y);
 }
 
 void InputField::setPosition(float px, float py)
@@ -132,7 +129,6 @@ void InputField::setDefaultText(int n)
 void InputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(mSprite, states);
-    target.draw(description, states);
     target.draw(inputText, states);
 }
 
