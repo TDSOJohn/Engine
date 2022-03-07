@@ -17,7 +17,7 @@ InputField::InputField(FontHolder& fonts, TextureHolder& textures, Filter Filter
     mSprite(textures.get(Textures::Buttons)),
     mIsClickable(true)
 {
-    Component::setToggle(true);
+    Component::setTogglable(true);
 
     inputText.setFont(fonts.get(Fonts::Mono));
     inputText.setCharacterSize(18);
@@ -53,8 +53,7 @@ void InputField::activate()
     Component::activate();
 
     // If we are toggle then we should show that the button is pressed and thus "toggled".
-    if (mIsTogglable)
-        changeTexture(Pressed);
+    changeTexture(Pressed);
 
     if (mCallback)
         mCallback();

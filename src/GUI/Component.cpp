@@ -8,6 +8,8 @@
 
 #include "GUI/Component.hpp"
 
+#include <iostream>
+
 
 namespace eng
 {
@@ -23,7 +25,7 @@ Component::~Component()
 {
 }
 
-void Component::setToggle(bool flag)
+void Component::setTogglable(bool flag)
 {
     mIsTogglable = flag;
 }

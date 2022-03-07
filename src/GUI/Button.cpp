@@ -55,15 +55,15 @@ bool Button::isSelectable() const
 void Button::select()
 {
     Component::select();
-
-    changeTexture(Selected);
+    if(!mIsActive)
+        changeTexture(Selected);
 }
 
 void Button::deselect()
 {
     Component::deselect();
-
-    changeTexture(Normal);
+    if(!mIsActive)
+        changeTexture(Normal);
 }
 
 void Button::activate()
@@ -72,6 +72,8 @@ void Button::activate()
     // If we are toggle then we should show that the button is pressed and thus "toggled".
     if(mIsTogglable)
         changeTexture(Pressed);
+    else
+        Button::deactivate();
 
     if(mCallback)
         mCallback();
@@ -81,14 +83,11 @@ void Button::deactivate()
 {
     Component::deactivate();
 
-    if(mIsTogglable)
-    {
-        // Reset texture to right one depending on if we are selected or not.
-        if(isSelected())
-            changeTexture(Selected);
-        else
-            changeTexture(Normal);
-    }
+    // Reset texture to right one depending on if we are selected or not.
+    if(isSelected())
+        changeTexture(Selected);
+    else
+        changeTexture(Normal);
 }
 
 void Button::handleEvent(const sf::Event&)

@@ -51,7 +51,7 @@ class Component:    public sf::Drawable,
 
         /// \brief Set if component it togglable.
         /// \param flag A bool value containing the value to set the internal togglable flag to.
-        void                    setToggle(bool flag);
+        void                    setTogglable(bool flag);
 
         /// \brief Return true if the Component is togglable.
         /// A togglable Component keeps the Active state until deactivate() is called.
@@ -92,6 +92,7 @@ class Component:    public sf::Drawable,
 
     protected:
         bool                    mIsTogglable;
+
         bool                    mIsSelected;
         bool                    mIsActive;
 };

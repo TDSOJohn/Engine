@@ -66,9 +66,17 @@ int main()
     //  Pack it inside the container
     mGUIContainer.pack(button_2);
 
+    //  Create a button, set its position, text and callback function
+    auto button_3 = std::make_shared<eng::Button>(fonts, text);
+    button_3->setPosition(100.f, 400.f);
+    button_3->setText("Togglable\nButton!");
+    button_3->setTogglable(true);
+    //  Pack it inside the container
+    mGUIContainer.pack(button_3);
+
     //  Create an input field, set its position
-    auto input_1 = std::make_shared<eng::InputField>(fonts, text, eng::InputField::Chars, "Insert text here...");
-    input_1->setPosition(100.f, 500.f);
+    auto input_1 = std::make_shared<eng::InputField>(fonts, text, eng::InputField::Chars, "Insert text\nhere...");
+    input_1->setPosition(100.f, 550.f);
 
     //  Pack it inside the container
     mGUIContainer.pack(input_1);
