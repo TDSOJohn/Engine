@@ -43,7 +43,7 @@ public:
     };
 
 public:
-    InputField(FontHolder& fonts, TextureHolder& textures, Filter filter = Chars, const std::string& text = "Default Text");
+    InputField(const FontHolder& fonts, const TextureHolder& textures, Filter filter = Chars, const std::string& text = "Default Text");
     ~InputField();
 
     /// \brief Return true if the Component is selectable.

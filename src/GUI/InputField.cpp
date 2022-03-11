@@ -10,7 +10,7 @@
 namespace eng
 {
 
-InputField::InputField(FontHolder& fonts, TextureHolder& textures, Filter Filter, const std::string& text):
+InputField::InputField(const sf::Font& font_in, const TextureHolder& textures, Filter Filter, const std::string& text):
     Component(),
     mFilter(Filter),
     mCallback(),
@@ -19,7 +19,7 @@ InputField::InputField(FontHolder& fonts, TextureHolder& textures, Filter Filter
 {
     Component::setTogglable(true);
 
-    inputText.setFont(fonts.get(Fonts::Mono));
+    inputText.setFont(font_in);
     inputText.setCharacterSize(18);
     inputText.setString(text);
     inputText.setFillColor(sf::Color::White);

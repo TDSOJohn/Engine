@@ -58,7 +58,8 @@ set (SRC
 	src/GUI/Component.cpp
 	src/GUI/Container.cpp
     src/GUI/InputField.cpp
-	src/GUI/Label.cpp)
+	src/GUI/Label.cpp
+    src/GUI/Slider.cpp)
 
 add_library(engine STATIC ${SRC})
 
