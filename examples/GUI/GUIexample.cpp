@@ -75,7 +75,7 @@ int main()
     mGUIContainer.pack(button_3);
 
     //  Create an input field, set its position
-    auto input_1 = std::make_shared<eng::InputField>(fonts, text, eng::InputField::Chars, "Insert text\nhere...");
+    auto input_1 = std::make_shared<eng::InputField>(fonts.get(eng::Fonts::Mono), text, eng::InputField::Chars, "Insert text\nhere...");
     input_1->setPosition(100.f, 550.f);
 
     //  Pack it inside the container

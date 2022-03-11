@@ -5,13 +5,11 @@ namespace eng
 
 
 Slider::Slider(const sf::Font& font_in, int min_val, int max_val):
-    mMin(min_val, )
+    mMin(std::to_string(min_val), font_in),
+    mMax(std::to_string(max_val), font_in)
 {
 
 }
-
-Slider::Slider(float min_val, float max_val)
-{}
 
 void Slider::setCallback(Callback callback)
 {

@@ -28,7 +28,7 @@ public:
         Linear,
         Logarithmic,
         ScaleCount
-    }
+    };
 
     enum Type
     {
