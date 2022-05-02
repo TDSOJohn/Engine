@@ -24,11 +24,12 @@ namespace sf
 }
 
 
+class Player;
+
 namespace eng
 {
 
 class StateStack;
-class Player;
 
 class State
 {
