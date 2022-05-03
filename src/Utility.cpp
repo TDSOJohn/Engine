@@ -191,13 +191,13 @@ float toRadian(float degree)
 bool rotationDirection(float start, float end)
 {
     if((start > end) && (modulo(start - end, 360) < 180))
-        return 0;
+        return 1;
     else if((start > end) && (modulo(start - end, 360) < 180))
-        return 1;
-    else if((start < end) && (modulo(start - end, 360) < 180))
-        return 1;
-    else if((start < end) && (modulo(start - end, 360) > 180))
         return 0;
+    else if((start < end) && (modulo(start - end, 360) < 180))
+        return 0;
+    else if((start < end) && (modulo(start - end, 360) > 180))
+        return 1;
     else
         return 0;
 }
