@@ -57,6 +57,10 @@ void                centerOrigin(sf::Sprite& sprite);
 void                centerOrigin(sf::Text& text);
 void                centerOrigin(Animation& animation);
 
+//  Returns 0 if clockwise, 1 otherwise
+//  Returns 0 if the two angles are 180 degrees apart
+bool                rotationDirection(float start, float end);
+
 // Degree/radian conversion
 float               toDegree(float radian);
 float               toRadian(float degree);

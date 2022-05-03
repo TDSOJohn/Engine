@@ -1,10 +1,14 @@
 #include "Camera.hpp"
-//#include "Utilities.hpp"
+#include "Utility.hpp"
+
+namespace eng
+{
 
 
 Camera::Camera():
     sf::View(sf::Vector2f(0.f, 0.f) , sf::Vector2f(800.f, 450.f)),
     mTargetPosition(0.f, 0.f),
+    mTargetRotation(0.f),
     mSmoothing(10.f)
 {
 }
@@ -16,15 +20,36 @@ void Camera::setSmoothing(float s_in)
 
 void Camera::update(const sf::Time& dt)
 {
-
     //  Get position to follow
     sf::Vector2f mCurrentPosition = sf::View::getCenter();
     sf::Vector2f mMovement = (mTargetPosition - mCurrentPosition) / mSmoothing;
 
     sf::View::setCenter(mCurrentPosition + mMovement);
+
+    float start = sf::View::getRotation();
+    bool rotDir = rotationDirection(start, mTargetRotation);
+    float diff = 0.f;
+
+    if(std::abs(start - mTargetRotation) >= 180.f)
+        diff = (360 - std::abs(start - mTargetRotation));
+    else
+        diff = std::abs(start - mTargetRotation);
+
+    if(rotDir)
+        sf::View::setRotation(start + (1.f/10.f) * (diff));
+    else
+        sf::View::setRotation(start - (1.f/10.f) * (diff));
 }
 
 void Camera::setTargetPosition(const sf::Vector2f& pos_in)
 {
     mTargetPosition = pos_in;
+}
+
+void Camera::setTargetRotation(float deg_in)
+{
+    mTargetRotation = deg_in;
+}
+
+
 }

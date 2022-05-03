@@ -188,6 +188,20 @@ float toRadian(float degree)
     return 3.141592653589793238462643383f / 180.f * degree;
 }
 
+bool rotationDirection(float start, float end)
+{
+    if((start > end) && (modulo(start - end, 360) < 180))
+        return 0;
+    else if((start > end) && (modulo(start - end, 360) < 180))
+        return 1;
+    else if((start < end) && (modulo(start - end, 360) < 180))
+        return 1;
+    else if((start < end) && (modulo(start - end, 360) > 180))
+        return 0;
+    else
+        return 0;
+}
+
 float length(sf::Vector2f vector)
 {
     return std::sqrt(vector.x * vector.x + vector.y * vector.y);
