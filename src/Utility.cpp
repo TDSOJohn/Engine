@@ -195,9 +195,9 @@ bool rotationDirection(float start, float end)
     else if((start > end) && (modulo(start - end, 360) > 180))
         return 1;
     else if((start < end) && (modulo(start - end, 360) < 180))
-        return 0;
-    else if((start < end) && (modulo(start - end, 360) > 180))
         return 1;
+    else if((start < end) && (modulo(start - end, 360) > 180))
+        return 0;
     else
         return 0;
 }
