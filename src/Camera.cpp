@@ -6,7 +6,7 @@ namespace eng
 
 
 Camera::Camera():
-    sf::View(sf::Vector2f(0.f, 0.f) , sf::Vector2f(800.f, 450.f)),
+    sf::View(sf::Vector2f(0.f, 0.f) , sf::Vector2f(sf::View::getDesktopMode().width, sf::View::getDesktopMode().height)),
     mTargetPosition(0.f, 0.f),
     mTargetRotation(0.f),
     mSmoothing(10.f)
