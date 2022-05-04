@@ -28,11 +28,8 @@ void Camera::update(const sf::Time& dt)
 
     sf::View::setCenter(mCurrentPosition + mMovement);
 
-
-    std::cout << "\n====================================\n" << "Current rotation: " << sf::View::getRotation() << "\n";
     float start = sf::View::getRotation();
     bool rotDir = rotationDirection(start, mTargetRotation);
-    std::cout << "Direction: " << rotDir << "\n";
     float diff = 0.f;
 
     if(std::abs(start - mTargetRotation) >= 180.f)
@@ -40,14 +37,10 @@ void Camera::update(const sf::Time& dt)
     else
         diff = std::abs(start - mTargetRotation);
 
-    std::cout << "Target: " << mTargetRotation << "\n";
-    std::cout << "Difference: " << diff << "\n";
     if(rotDir)
         sf::View::setRotation(start + diff / mSmoothing);
     else
         sf::View::setRotation(start - diff / mSmoothing);
-
-    std::cout << "\n====================================\n";
 }
 
 void Camera::setTargetPosition(const sf::Vector2f& pos_in)

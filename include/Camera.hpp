@@ -14,6 +14,8 @@ public:
     void                setSmoothing(float s_in);
     void                update(const sf::Time& dt);
     void                setTargetPosition(const sf::Vector2f& pos_in);
+
+    // Expects 0..359 degrees input
     void                setTargetRotation(float deg_in);
 
 private:
