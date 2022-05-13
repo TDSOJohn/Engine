@@ -2,13 +2,18 @@
 #include "Utility.hpp"
 
 #include <cmath>
+#include <iostream>
 
 
 namespace eng
 {
 
 RigidBody::RigidBody(float maxv):
-    maxVelocity(maxv)
+    maxVelocity(maxv),
+    mMass(0.f),
+    mVelocity(0.f),
+    mAcceleration(0.f, 0.f),
+    mRotation(0.f)
 {
     getDirectedVelocity(0.f);
 }
@@ -34,11 +39,17 @@ float RigidBody::getVelocity() const
     return mVelocity;
 }
 
+float RigidBody::getCurrentRotation() const
+{
+    return toDegree(mRotation);
+}
+
 sf::Vector2f RigidBody::getDirectedVelocity(float deg)
 {
-    float rad = toRadian(deg);
-    mDirectedVelocity.x = -std::sin(rad) * mVelocity;
-    mDirectedVelocity.y = std::cos(rad) * mVelocity;
+    mRotation = toRadian(deg);
+
+    mDirectedVelocity.x = std::sin(mRotation) * mVelocity;
+    mDirectedVelocity.y = std::cos(mRotation) * mVelocity;
 
     return mDirectedVelocity;
 }

@@ -21,6 +21,8 @@ public:
 
     float                   getVelocity() const;
 
+    float                   getCurrentRotation() const;
+
     //  input: rotation in degrees [0, ..., 360]
     //  necessary because RigidBody doesn't inherit sf::Transformable
     //  Not const because it updates mDirectedVelocity before returning
