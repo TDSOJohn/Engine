@@ -48,7 +48,7 @@ sf::Vector2f RigidBody::getDirectedVelocity(float deg)
 {
     mRotation = toRadian(deg);
 
-    mDirectedVelocity.x = std::sin(mRotation) * mVelocity;
+    mDirectedVelocity.x = -std::sin(mRotation) * mVelocity;
     mDirectedVelocity.y = std::cos(mRotation) * mVelocity;
 
     return mDirectedVelocity;
