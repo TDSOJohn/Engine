@@ -26,7 +26,8 @@ public:
     //  input: rotation in degrees [0, ..., 360]
     //  necessary because RigidBody doesn't inherit sf::Transformable
     //  Not const because it updates mDirectedVelocity before returning
-    sf::Vector2f            getDirectedVelocity(float deg);
+    void                    computeDirectedVelocity(float deg);
+    sf::Vector2f            getDirectedVelocity() const;
     float                   getMaxVelocity() const;
 
     float                   getMass() const;

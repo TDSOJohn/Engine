@@ -15,12 +15,13 @@ RigidBody::RigidBody(float maxv):
     mAcceleration(0.f, 0.f),
     mRotation(0.f)
 {
-    getDirectedVelocity(0.f);
+    computeDirectedVelocity(0.f);
 }
 
 void RigidBody::setVelocity(float v)
 {
     mVelocity = v;
+    mVelocity *= -1;
 }
 
 void RigidBody::accelerate(float velocity)
@@ -44,13 +45,16 @@ float RigidBody::getCurrentRotation() const
     return toDegree(mRotation);
 }
 
-sf::Vector2f RigidBody::getDirectedVelocity(float deg)
+void RigidBody::computeDirectedVelocity(float deg)
 {
     mRotation = toRadian(deg);
 
     mDirectedVelocity.x = -std::sin(mRotation) * mVelocity;
     mDirectedVelocity.y = std::cos(mRotation) * mVelocity;
+}
 
+sf::Vector2f RigidBody::getDirectedVelocity() const
+{
     return mDirectedVelocity;
 }
 

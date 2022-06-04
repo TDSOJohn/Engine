@@ -211,7 +211,9 @@ sf::Vector2f distance(sf::Vector2f v1, sf::Vector2f v2)
 
 sf::Vector2f unitVector(sf::Vector2f vector)
 {
-    assert(vector != sf::Vector2f(0.f, 0.f));
+    if(vector == sf::Vector2f(0.f, 0.f))
+        vector = {100.f, 100.f};
+//    assert(vector != sf::Vector2f(0.f, 0.f));
     return vector / length(vector);
 }
 
@@ -246,6 +248,19 @@ Pixel inverse(const Pixel& in)
     res.g = 255 - in.g;
     res.b = 255 - in.b;
     return res;
+}
+
+sf::Vector2f directedVector(float deg)
+{
+    float rad = toRadian(deg);
+    sf::Vector2f result(std::sin(rad), -std::cos(rad));
+
+    return result;
+}
+
+sf::Vector2f rotateVector(float deg)
+{
+
 }
 
 }

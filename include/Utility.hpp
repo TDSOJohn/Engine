@@ -83,6 +83,10 @@ std::vector<int>    generatePartition(int max_n, unsigned int parts);
 /// \returns negative Pixel
 Pixel inverse(const Pixel& in);
 
+sf::Vector2f directedVector(float deg);
+
+sf::Vector2f rotateVector(float deg);
+
 #include "Utility.inl"
 
 }

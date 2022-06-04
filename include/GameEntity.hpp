@@ -27,6 +27,7 @@ public:
     void                        destroy();
     virtual void                remove();
     virtual bool                isDestroyed() const;
+    void                        rotate(float angle);
 
 protected:
     int                         mHitpoints;

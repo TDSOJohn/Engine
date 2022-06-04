@@ -10,6 +10,8 @@
 
 #include <cassert>
 
+#include <iostream>
+
 
 namespace eng
 {
@@ -55,8 +57,13 @@ bool GameEntity::isDestroyed() const
 
 void GameEntity::updateCurrent(sf::Time dt, GameCommandQueue&)
 {
-    getDirectedVelocity(this->getRotation());
+    computeDirectedVelocity(this->getRotation());
     move(mDirectedVelocity * dt.asSeconds());
+}
+
+void GameEntity::rotate(float angle) {
+    SceneNode::rotate(angle);
+    computeDirectedVelocity(getRotation());
 }
 
 }
