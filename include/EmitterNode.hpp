@@ -32,8 +32,8 @@ class EmitterNode : public SceneNode
 
     private:
         sf::Time                mAccumulatedTime;
-        Particle::Type            mType;
-        ParticleNode*            mParticleSystem;
+        Particle::Type          mType;
+        ParticleNode*           mParticleSystem;
 };
 }
 

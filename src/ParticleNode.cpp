@@ -16,7 +16,6 @@
 #include <algorithm>
 
 
-
 namespace
 {
     struct ParticleData
@@ -24,8 +23,20 @@ namespace
         sf::Color               color;
         sf::Time                lifetime;
     };
+    std::vector<ParticleData> initializeParticleData()
+    {
+        std::vector<ParticleData> data(eng::Particle::ParticleCount);
 
-    const std::vector<ParticleData> Table;// = initializeParticleData();
+        data[eng::Particle::Propellant].color = sf::Color(255, 255, 50);
+        data[eng::Particle::Propellant].lifetime = sf::seconds(0.6f);
+
+        data[eng::Particle::Smoke].color = sf::Color(150, 140, 130);
+        data[eng::Particle::Smoke].lifetime = sf::seconds(4.f);
+
+        return data;
+    }
+
+    const std::vector<ParticleData> Table = initializeParticleData();
 }
 
 

@@ -27,6 +27,7 @@ namespace Category
         EnemyProjectile     = 1 << 7,
         Missile             = 1 << 8,
         ParticleSystem      = 1 << 9,
+        GameInfoOverlay     = 1 << 10,
 
         Spaceship = PlayerShip | Npc | EnemyShip,
         Projectile = AlliedProjectile | EnemyProjectile | Missile,
