@@ -15,19 +15,20 @@ TileMap::TileMap(const TextureHolder& textures, sf::FloatRect worldBounds):
 {
 }
 
-bool TileMap::load(sf::Vector2u tileSize, unsigned int width, unsigned int height)
+bool TileMap::load(sf::Vector2u tileSize)
 {
+    mSize = {static_cast<unsigned int>(mWorldBounds.width / tileSize.x), static_cast<unsigned int>(mWorldBounds.height / tileSize.y)};
     mTileSize = tileSize;
-    for(int i = 0; i < width; i++)
+
+    for(int i = 0; i < mSize.x; i++)
     {
-        for(int j = 0; j < height; j++)
+        for(int j = 0; j < mSize.y; j++)
             mTiles.push_back(rand()%4);
     }
     // resize the vertex array to fit the level size
     mVertices.setPrimitiveType(sf::Quads);
-    mVertices.resize(width * height * 4);
+    mVertices.resize(mSize.x * mSize.y * 4);
 
-    mSize = {width, height};
     refresh();
 
     return true;

@@ -28,6 +28,8 @@ int GameEntity::getHitpoints() const
 
 void GameEntity::repair(int points)
 {
+    //  [ BUG ] Crashes when hitting an emeny that kills you AND spawns
+    //  a repair pickup that player spaceship hits in the same frames
     assert(points > 0);
 
     mHitpoints += points;

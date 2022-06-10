@@ -17,7 +17,7 @@ class TileMap: public SceneNode
 public:
                                 TileMap(const TextureHolder& textures, sf::FloatRect worldBounds);
 
-    bool                        load(sf::Vector2u tileSize, unsigned int width, unsigned int height);
+    bool                        load(sf::Vector2u tileSize);
     void                        refresh();
     void                        createVertexArray();
 
