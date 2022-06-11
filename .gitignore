@@ -1,8 +1,11 @@
 build/
 documentation/
+cmake-build-debug/
 
 .DS_Store
 
 main.cpp
 
 a.out
+
+*.idea
