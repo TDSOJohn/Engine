@@ -21,6 +21,7 @@ namespace States
         Title,
         Menu,
         Game,
+        Arena,
         Loading,
         Pause,
         Dialogue,

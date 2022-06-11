@@ -6,6 +6,8 @@
 #ifndef Utility_h
 #define Utility_h
 
+#include "SceneNode.hpp"
+
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/System/Vector2.hpp>
 
@@ -86,6 +88,9 @@ Pixel inverse(const Pixel& in);
 sf::Vector2f directedVector(float deg);
 
 sf::Vector2f rotateVector(float deg);
+
+bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Category::Type type2);
+
 
 #include "Utility.inl"
 

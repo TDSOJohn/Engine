@@ -263,4 +263,25 @@ sf::Vector2f rotateVector(float deg)
 
 }
 
+bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Category::Type type2)
+{
+    unsigned int category1 = colliders.first->getCategory();
+    unsigned int category2 = colliders.second->getCategory();
+
+    // check if first pair entry has category type1 and second has type2
+    if (type1 & category1 && type2 & category2)
+    {
+        return true;
+    }
+    else if (type1 & category2 && type2 & category1)
+    {
+        std::swap(colliders.first, colliders.second);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 }
