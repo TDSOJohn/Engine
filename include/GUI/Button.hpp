@@ -27,6 +27,7 @@ namespace eng
 {
 /// \class Button
 /// \brief Simple Button class.
+///
 /// A Button can be togglable (maintains activation until manually deactivated).
 /// A Button::Activate() call on a togglable Button causes the texture to change.
 class Button : public Component

@@ -22,18 +22,31 @@ namespace eng
 
 class SceneNode;
 
-
+/// \struct Command
+/// \brief Simple Command struct.
+///
+///
 struct Command
 {
+    /// \brief Define Action as a function object
+    ///
+    /// The function can be called on any game object represented by a scene node
     typedef std::function<void(SceneNode&, sf::Time)> Action;
 
+    /// \brief Constructor.
+    ///
+    /// Default category is Category::None
     Command();
 
     Action                              action;
+
+    /// \brief the category the command targets.
+    ///
+    /// Category is an enum defined in Category.hpp
     unsigned int                        category;
 };
 
-// Automatic downcasting from every SceneNode-derived class
+/// \brief Automatic downcasting from every SceneNode-derived class
 template <typename GameObject, typename Function>
 Command::Action                         derivedAction(Function fn)
 {

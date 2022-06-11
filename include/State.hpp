@@ -31,6 +31,10 @@ namespace eng
 
 class StateStack;
 
+/// \class State
+/// \brief virtual State class
+///
+/// Inherited to create states. Used to create a StateStack
 class State
 {
 public:
