@@ -20,8 +20,14 @@ EmitterNode::EmitterNode(Particle::Type type):
     SceneNode(),
     mAccumulatedTime(sf::Time::Zero),
     mType(type),
-    mParticleSystem(nullptr)
+    mParticleSystem(nullptr),
+    mEmissionRate(30.f)
 {
+}
+
+void EmitterNode::setEmissionRate(float dt)
+{
+    mEmissionRate = dt;
 }
 
 void EmitterNode::updateCurrent(sf::Time dt, GameCommandQueue& commands)
@@ -49,8 +55,7 @@ void EmitterNode::updateCurrent(sf::Time dt, GameCommandQueue& commands)
 
 void EmitterNode::emitParticles(sf::Time dt)
 {
-    const float emissionRate = 30.f;
-    const sf::Time interval = sf::seconds(1.f) / emissionRate;
+    const sf::Time interval = sf::seconds(1.f) / mEmissionRate;
 
     mAccumulatedTime += dt;
 

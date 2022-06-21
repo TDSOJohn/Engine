@@ -20,20 +20,24 @@ class ParticleNode;
 
 class EmitterNode : public SceneNode
 {
-    public:
-        explicit                EmitterNode(Particle::Type type);
+public:
+    explicit                EmitterNode(Particle::Type type);
+
+    void                    setEmissionRate(float dt);
 
 
-    private:
-        virtual void            updateCurrent(sf::Time dt, GameCommandQueue& commands);
+private:
+    virtual void            updateCurrent(sf::Time dt, GameCommandQueue& commands);
 
-        void                    emitParticles(sf::Time dt);
+    void                    emitParticles(sf::Time dt);
 
 
-    private:
-        sf::Time                mAccumulatedTime;
-        Particle::Type          mType;
-        ParticleNode*           mParticleSystem;
+private:
+    Particle::Type          mType;
+    ParticleNode*           mParticleSystem;
+
+    float                   mEmissionRate;
+    sf::Time                mAccumulatedTime;
 };
 }
 
