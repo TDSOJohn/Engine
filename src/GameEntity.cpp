@@ -16,8 +16,8 @@
 namespace eng
 {
 
-GameEntity::GameEntity(int hitpoints, float maxv):
-    RigidBody(maxv),
+GameEntity::GameEntity(int hitpoints, float maxv, float maxr):
+    RigidBody(maxv, maxr),
     mHitpoints(hitpoints)
 {}
 

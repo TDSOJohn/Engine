@@ -11,7 +11,7 @@ namespace eng
 class RigidBody
 {
 public:
-    RigidBody(float maxv = 0.f);
+    RigidBody(float maxv = 0.f, float maxr = 0.f);
 
     void                    setVelocity(float v);
 
@@ -22,6 +22,8 @@ public:
     float                   getVelocity() const;
 
     float                   getCurrentRotation() const;
+    float                   getMaxRotation() const;
+    void                    setMaxRotation(float r);
 
     //  input: rotation in degrees [0, ..., 360]
     //  necessary because RigidBody doesn't inherit sf::Transformable
@@ -39,6 +41,8 @@ protected:
     float                   mVelocity;
     sf::Vector2f            mDirectedVelocity;
     float                   maxVelocity;
+
+    float                   maxRotation;
 
     sf::Vector2f            mAcceleration;
 

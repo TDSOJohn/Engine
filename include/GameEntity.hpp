@@ -19,7 +19,7 @@ namespace eng
 class GameEntity : public SceneNode, public RigidBody
 {
 public:
-    explicit                    GameEntity(int hitpoints, float maxv = 0.f);
+    explicit                    GameEntity(int hitpoints, float maxv = 0.f, float maxr = 0.f);
 
     int                         getHitpoints() const;
     void                        repair(int points);

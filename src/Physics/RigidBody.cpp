@@ -8,8 +8,9 @@
 namespace eng
 {
 
-RigidBody::RigidBody(float maxv):
+RigidBody::RigidBody(float maxv, float maxr):
     maxVelocity(maxv),
+    maxRotation(maxr),
     mMass(0.f),
     mVelocity(0.f),
     mAcceleration(0.f, 0.f),
@@ -43,6 +44,16 @@ float RigidBody::getVelocity() const
 float RigidBody::getCurrentRotation() const
 {
     return toDegree(mRotation);
+}
+
+float RigidBody::getMaxRotation() const
+{
+    return maxRotation;
+}
+
+void RigidBody::setMaxRotation(float r)
+{
+    maxRotation = r;
 }
 
 void RigidBody::computeDirectedVelocity(float deg)
