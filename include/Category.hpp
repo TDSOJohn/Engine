@@ -28,6 +28,7 @@ namespace Category
         Missile             = 1 << 8,
         ParticleSystem      = 1 << 9,
         GameInfoOverlay     = 1 << 10,
+        SoundEffect         = 1 << 11,
 
         Spaceship = PlayerShip | Npc | EnemyShip,
         Projectile = AlliedProjectile | EnemyProjectile | Missile,

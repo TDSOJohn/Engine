@@ -108,6 +108,7 @@ private:
     Callback                mCallback;
     sf::Sprite              mSprite;
     sf::Text                mText;
+//    SoundPlayer&			mSounds;
 
     bool                    mIsClickable;
 };

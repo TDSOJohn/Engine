@@ -41,6 +41,7 @@ set (SRC
     src/Command.cpp
     src/EmitterNode.cpp
     src/GameEntity.cpp
+	src/MusicPlayer.cpp
     src/ParticleNode.cpp
     src/PostEffect.cpp
     src/RandomUtilities.cpp
@@ -58,7 +59,7 @@ set (SRC
 	src/GUI/Container.cpp
     src/GUI/InputField.cpp
 	src/GUI/Label.cpp
-    src/GUI/Slider.cpp)
+    src/GUI/Slider.cpp src/SoundPlayer.cpp src/SoundNode.cpp)
 
 add_library(engine STATIC ${SRC})
 

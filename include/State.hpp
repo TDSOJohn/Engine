@@ -23,12 +23,13 @@ namespace sf
     class RenderWindow;
 }
 
-
 class Player;
 
 namespace eng
 {
 
+class MusicPlayer;
+class SoundPlayer;
 class StateStack;
 
 /// \class State
@@ -42,13 +43,15 @@ public:
 
     struct Context
     {
-        Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, Player& player);
+        Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, Player& player, MusicPlayer& music, SoundPlayer& sounds);
         Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts);
 
         sf::RenderWindow*                   window;
         TextureHolder*                      textures;
         FontHolder*                         fonts;
         Player*                             player;
+        MusicPlayer*                        music;
+        SoundPlayer*                        sounds;
     };
 
 

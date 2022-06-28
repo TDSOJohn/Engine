@@ -13,11 +13,13 @@
 namespace eng
 {
 
-State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, Player& player):
+State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, Player& player, MusicPlayer& music, SoundPlayer& sounds):
     window(&window),
     textures(&textures),
     fonts(&fonts),
-    player(&player)
+    player(&player),
+    music(&music),
+    sounds(&sounds)
 {
 }
 
@@ -25,7 +27,9 @@ State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontH
     window(&window),
     textures(&textures),
     fonts(&fonts),
-    player(nullptr)
+    player(nullptr),
+    music(nullptr),
+    sounds(nullptr)
 {
 }
 
