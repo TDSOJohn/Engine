@@ -258,11 +258,6 @@ sf::Vector2f directedVector(float deg)
     return result;
 }
 
-sf::Vector2f rotateVector(float deg)
-{
-
-}
-
 bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Category::Type type2)
 {
     unsigned int category1 = colliders.first->getCategory();

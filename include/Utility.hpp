@@ -87,8 +87,6 @@ Pixel inverse(const Pixel& in);
 
 sf::Vector2f directedVector(float deg);
 
-sf::Vector2f rotateVector(float deg);
-
 bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Category::Type type2);
 
 
