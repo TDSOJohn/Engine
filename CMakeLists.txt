@@ -47,19 +47,21 @@ set (SRC
     src/RandomUtilities.cpp
     src/ResourcePath.cpp
     src/SceneNode.cpp
+    src/SoundNode.cpp
+    src/SoundPlayer.cpp
     src/State.cpp
     src/StateCommand.cpp
     src/StateStack.cpp
     src/TextNode.cpp
     src/TileMap.cpp
     src/Utility.cpp
-	src/Physics/RigidBody.cpp
     src/GUI/Button.cpp
 	src/GUI/Component.cpp
 	src/GUI/Container.cpp
     src/GUI/InputField.cpp
 	src/GUI/Label.cpp
-    src/GUI/Slider.cpp src/SoundPlayer.cpp src/SoundNode.cpp)
+    src/GUI/Slider.cpp
+    src/Physics/RigidBody.cpp)
 
 add_library(engine STATIC ${SRC})
 

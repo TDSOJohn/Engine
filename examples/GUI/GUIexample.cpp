@@ -12,6 +12,7 @@
 #include <memory>
 #include <functional>
 
+
 //  A simple function that changes the color of the input sf::RectangleShape to random values
 void changeColor(sf::RectangleShape& rect_in)
 {
