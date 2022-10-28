@@ -12,7 +12,7 @@
 #include "Component.hpp"
 
 #include "ResourceHolder.hpp"
-#include "ResourceIdentifiers.hpp"
+#include "ResourceTypes.hpp"
 
 #include <SFML/Graphics/Text.hpp>
 

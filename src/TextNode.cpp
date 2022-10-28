@@ -8,6 +8,7 @@
 
 #include "TextNode.hpp"
 #include "Utility.hpp"
+#include "ResourceIdentifiers.hpp"
 
 #include <SFML/Graphics/RenderTarget.hpp>
 

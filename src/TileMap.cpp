@@ -1,6 +1,7 @@
 #include "TileMap.hpp"
 #include "Category.hpp"
 #include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
 
 #include <iostream>
 

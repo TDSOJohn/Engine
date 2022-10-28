@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "ResourceIdentifiers.hpp"
+#include "ResourceTypes.hpp"
 #include "GUI/Component.hpp"
 
 

@@ -10,7 +10,7 @@
 #define TextNode_hpp
 
 #include "ResourceHolder.hpp"
-#include "ResourceIdentifiers.hpp"
+#include "ResourceTypes.hpp"
 #include "SceneNode.hpp"
 
 #include <SFML/Graphics/Text.hpp>

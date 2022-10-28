@@ -1,6 +1,8 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 
 #include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
+
 #include "GUI/InputField.hpp"
 
 #include <iostream>

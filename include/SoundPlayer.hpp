@@ -6,7 +6,7 @@
 #define NOGRAVITAR_SOUNDPLAYER_HPP
 
 #include <ResourceHolder.hpp>
-#include <ResourceIdentifiers.hpp>
+#include <ResourceTypes.hpp>
 
 #include <SFML/System/Vector2.hpp>
 #include <SFML/System/NonCopyable.hpp>

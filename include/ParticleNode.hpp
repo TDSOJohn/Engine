@@ -10,7 +10,7 @@
 #define ParticleNode_hpp
 
 #include "SceneNode.hpp"
-#include "ResourceIdentifiers.hpp"
+#include "ResourceTypes.hpp"
 #include "Particle.hpp"
 
 #include <SFML/Graphics/VertexArray.hpp>

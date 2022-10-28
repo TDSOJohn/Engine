@@ -3,6 +3,7 @@
 
 #include <ResourceHolder.hpp>
 #include <ResourceIdentifiers.hpp>
+#include <ResourceTypes.hpp>
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Audio/Music.hpp>

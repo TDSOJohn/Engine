@@ -2,7 +2,7 @@
 #define tilemap_hpp
 
 #include "SceneNode.hpp"
-#include "ResourceIdentifiers.hpp"
+#include "ResourceTypes.hpp"
 
 #include <SFML/Graphics.hpp>
 

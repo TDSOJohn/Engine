@@ -9,6 +9,7 @@
 #include "GUI/Button.hpp"
 
 #include "Utility.hpp"
+#include "ResourceIdentifiers.hpp"
 
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderStates.hpp>

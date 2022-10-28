@@ -10,7 +10,7 @@
 #define State_hpp
 
 #include "StateIdentifiers.hpp"
-#include "ResourceIdentifiers.hpp"
+#include "ResourceTypes.hpp"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>

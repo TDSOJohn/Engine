@@ -7,7 +7,9 @@
 //
 
 #include "GUI/Label.hpp"
+
 #include "Utility.hpp"
+#include "ResourceIdentifiers.hpp"
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
