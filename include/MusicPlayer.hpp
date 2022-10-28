@@ -17,7 +17,7 @@ namespace eng
 class MusicPlayer : private sf::NonCopyable
 {
 public:
-    MusicPlayer(const MusicPathHolder& paths);
+    MusicPlayer(MusicPathHolder& paths);
 
     void play(Music::ID theme);
 

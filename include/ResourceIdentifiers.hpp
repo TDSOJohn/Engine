@@ -1,6 +1,8 @@
 #ifndef ResourceIdentifiers_hpp
 #define ResourceIdentifiers_hpp
 
+#include <map>
+
 namespace sf
 {
     class Texture;

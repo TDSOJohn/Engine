@@ -4,7 +4,7 @@
 namespace eng
 {
 
-MusicPlayer::MusicPlayer(const MusicPathHolder& paths):
+MusicPlayer::MusicPlayer(MusicPathHolder& paths):
         mMusic(),
         mFilenames(paths),
         mVolume(100.f)
