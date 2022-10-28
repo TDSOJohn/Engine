@@ -46,20 +46,21 @@ public:
     InputField(const sf::Font& font_in, const TextureHolder& textures, Filter filter = Chars, const std::string& text = "Default Text");
     ~InputField();
 
-    /// \brief Return true if the Component is selectable.
-    /// Override with the correct return value when inheriting.
+    /// \brief Returns true because InputField is always selectable.
     virtual bool            isSelectable() const { return 1; };
 
-    /// \brief Toggle the selection
-    /// Calling this function selects the current Button
+    /// \brief Toggle the selection.
+    /// Calling this function selects the current InputField.
     virtual void            select();
 
-    /// \brief Untoggle the selection
-    /// Calling this function deselects the current Button
+    /// \brief Untoggle the selection.
+    /// Calling this function deselects the current InputField.
     virtual void            deselect();
 
+    /// \brief Calling this function immediately activates the InputField, allowing text input.
     virtual void            activate();
 
+    /// \brief Calling this function immediately deactivates the InputField, disallowing any further input.
     virtual void            deactivate();
 
     void                    setPosition(const sf::Vector2f& position);
@@ -72,6 +73,8 @@ public:
     sf::FloatRect           getGlobalBounds() { return mSprite.getGlobalBounds(); }
 
     void                    handleEvent(const sf::Event& event);
+
+    std::string             getInput() const { return inputString; };
 
 private:
     std::string             inputString;

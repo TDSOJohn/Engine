@@ -14,7 +14,7 @@ MusicPlayer::MusicPlayer()
         , mVolume(100.f)
 {
     mFilenames[Music::MenuTheme]    = getResourcePath() + "Music/MenuTheme.ogg";
-    mFilenames[Music::MissionTheme] = getResourcePath() + "Music/MissionTheme_3.ogg";
+    mFilenames[Music::MissionTheme] = getResourcePath() + "Music/Tense.ogg";
 }
 
 void MusicPlayer::play(Music::ID theme)
