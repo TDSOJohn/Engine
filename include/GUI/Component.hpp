@@ -1,11 +1,3 @@
-//
-//  Component.hpp
-//  noGravitar
-//
-//  Created by Giovanni Basso on 08/06/21.
-//  Copyright © 2021 Giovanni Basso. All rights reserved.
-//
-
 #ifndef Component_hpp
 #define Component_hpp
 

@@ -1,13 +1,5 @@
-//
-//  ResourceIdentifiers.hpp
-//  noGravitar
-//
-//  Created by Giovanni Basso on 14/06/21.
-//  Copyright © 2021 Giovanni Basso. All rights reserved.
-//
-
-#ifndef ResourceIdentifiers_h
-#define ResourceIdentifiers_h
+#ifndef ResourceIdentifiers_hpp
+#define ResourceIdentifiers_hpp
 
 namespace sf
 {
@@ -110,7 +102,9 @@ typedef ResourceHolder<sf::Shader, Shaders::ID>             ShaderHolder;
 
 typedef ResourceHolder<sf::SoundBuffer, SoundEffect::ID>	SoundBufferHolder;
 
+typedef std::map<Music::ID, std::string>                    MusicPathHolder;
+
 
 }
 
-#endif /* ResourceIdentifiers_h */
+#endif /* ResourceIdentifiers_hpp */

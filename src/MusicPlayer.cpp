@@ -1,20 +1,14 @@
-//
-// Created by Giovanni Basso on 28/06/22.
-//
-
 #include <MusicPlayer.hpp>
 #include "ResourcePath.hpp"
 
 namespace eng
 {
 
-MusicPlayer::MusicPlayer()
-        : mMusic()
-        , mFilenames()
-        , mVolume(100.f)
+MusicPlayer::MusicPlayer(const MusicPathHolder& paths):
+        mMusic(),
+        mFilenames(paths),
+        mVolume(100.f)
 {
-    mFilenames[Music::MenuTheme]    = getResourcePath() + "Music/MenuTheme.ogg";
-    mFilenames[Music::MissionTheme] = getResourcePath() + "Music/Tense.ogg";
 }
 
 void MusicPlayer::play(Music::ID theme)

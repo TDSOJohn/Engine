@@ -1,9 +1,5 @@
-//
-// Created by Giovanni Basso on 28/06/22.
-//
-
-#ifndef NOGRAVITAR_MUSICPLAYER_HPP
-#define NOGRAVITAR_MUSICPLAYER_HPP
+#ifndef musicplayer_hpp
+#define musicplayer_hpp
 
 #include <ResourceHolder.hpp>
 #include <ResourceIdentifiers.hpp>
@@ -21,7 +17,7 @@ namespace eng
 class MusicPlayer : private sf::NonCopyable
 {
 public:
-    MusicPlayer();
+    MusicPlayer(const MusicPathHolder& paths);
 
     void play(Music::ID theme);
 
@@ -34,9 +30,9 @@ public:
 
 private:
     sf::Music mMusic;
-    std::map<Music::ID, std::string> mFilenames;
+    MusicPathHolder& mFilenames;
     float mVolume;
 };
 
 }
-#endif //NOGRAVITAR_MUSICPLAYER_HPP
+#endif //musicplayer_hpp

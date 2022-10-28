@@ -1,11 +1,3 @@
-//
-//  Component.cpp
-//  noGravitar
-//
-//  Created by Giovanni Basso on 08/06/21.
-//  Copyright © 2021 Giovanni Basso. All rights reserved.
-//
-
 #include "GUI/Component.hpp"
 
 #include <iostream>
