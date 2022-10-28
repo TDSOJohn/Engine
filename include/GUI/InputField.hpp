@@ -65,9 +65,6 @@ public:
     void                    setPosition(const sf::Vector2f& position);
     void                    setPosition(float px, float py);
 
-    void                    setDefaultText(const std::string& str);
-    void                    setDefaultText(int n);
-
     /// \brief Return the local bounds of the Button Sprite.
     sf::FloatRect           getLocalBounds() { return mSprite.getLocalBounds(); }
 
@@ -89,6 +86,9 @@ private:
 
 private:
     void                    changeTexture(Type buttonType);
+
+    void                    addCharacter(char c);
+    void                    removeCharacter();
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

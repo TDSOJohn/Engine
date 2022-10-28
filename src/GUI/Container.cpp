@@ -77,7 +77,6 @@ void Container::handleEvent(const sf::Event& event)
         else if(event.type == sf::Event::KeyReleased)
         {
             if( event.key.code == sf::Keyboard::Return
-                || event.key.code == sf::Keyboard::Space
                 || event.key.code == sf::Keyboard::Escape)
             {
                 mChildren[mActiveChild]->deactivate();
