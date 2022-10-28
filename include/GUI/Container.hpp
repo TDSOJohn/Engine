@@ -42,11 +42,23 @@ class Container : public Component
         /// - Checks if child is selectable,
         /// - deselects previous child
         /// - selects new one
+        /// \param index The index of the child to select
         void                select(std::size_t index);
+
+        /// \brief Select next child
+        /// - checks if any child is selected, otherwise returns
+        /// - selects next child
         void                selectNext();
+
+        /// \brief Select previous child
+        /// - checks if any child is selected, otherwise returns
+        /// - selects previous child
         void                selectPrevious();
 
+        /// \brief Check if any child is currently active
+        /// \return True if any child is currently active, 0 otherwise
         bool                hasActive();
+
         void                activate(std::size_t index);
 
         /// \brief Return the local bounds of the Container.

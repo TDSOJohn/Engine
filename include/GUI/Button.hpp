@@ -27,9 +27,7 @@ namespace eng
 {
 /// \class Button
 /// \brief Simple Button class.
-///
-/// A Button can be togglable (maintains activation until manually deactivated).
-/// A Button::Activate() call on a togglable Button causes the texture to change.
+/// Clicking it causes the Callback to be called
 class Button : public Component
 {
 public:
@@ -39,12 +37,11 @@ public:
 
     /// <table><tr><th>Normal</th><th>Button has normal texture</tr>
     /// <tr><th>Selected</th><th>Button has selected texture</tr>
-    /// <tr><th>Pressed</th><th>Button has active texture, Callback is called</tr></table>
+    /// <tr><th>Pressed</th><th>Callback is called</tr></table>
     enum Type
     {
         Normal,
         Selected,
-        Pressed,
         ButtonCount
     };
 
@@ -62,10 +59,6 @@ public:
     /// \param text A std::string containing the text.
     void                    setText(const std::string& text);
 
-    /// \brief Set clickable status of the Button.
-    /// \param flag True if the Button interacts with the mouse, false if not.
-    void                    setClickable(bool flag);
-
     /// \brief Check if the Button if selectable.
     /// Override from Component::isSelectable.
     /// \return Always returns true.
@@ -81,13 +74,12 @@ public:
 
     /// \brief Activate the Button.
     /// Calling this function activates the current Button.
-    /// This changes the Texture if setToggle has been set to true.
-    /// Otherwise, it immediately calls deactivate() automatically.
+    /// It immediately calls deactivate() automatically.
     /// This triggers a callback call if a callback [std::function](https://en.cppreference.com/w/cpp/utility/functional/function) has been provided by a previous setCallback([std::function](https://en.cppreference.com/w/cpp/utility/functional/function)).
     virtual void            activate();
 
-    /// \brief Deactivate the Button
-    /// Calling this function deactivates the current Button (This changes the Texture)
+    /// \brief Deactivate the Button.
+    /// Calling this function deactivates the current Button.
     virtual void            deactivate();
 
     /// \brief Have the Button handle a sf::Event
@@ -109,8 +101,6 @@ private:
     sf::Sprite              mSprite;
     sf::Text                mText;
 //    SoundPlayer&			mSounds;
-
-    bool                    mIsClickable;
 };
 
 }

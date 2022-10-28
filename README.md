@@ -9,7 +9,7 @@ cmake -S . -B build
 cd build
 make
 ```
-This creates a libengine.a file you can statically link.
+This creates a libengine.a file you can statically link to your project.
 
 Compile your project and link to library with:
 ```
@@ -22,4 +22,4 @@ g++ --std=c++17 main.cpp ./build/libengine.a -framework CoreServices
 ```
 
 ## Examples
-The examples/ folder contains a few examples, each with its cmake file. The library has to be built separately with the above mentioned method, as the cmake file needs libengine.a in the build/ folder to compile the example.
+The examples/ folder contains a few examples, each with its own cmake file. The library has to be built separately with the above mentioned method, as the example cmake files needs libengine.a in the build/ folder to compile the example.

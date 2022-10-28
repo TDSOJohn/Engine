@@ -70,8 +70,7 @@ int main()
     //  Create a button, set its position, text and callback function
     auto button_3 = std::make_shared<eng::Button>(fonts, text);
     button_3->setPosition(100.f, 400.f);
-    button_3->setText("Togglable\nButton!");
-    button_3->setTogglable(true);
+    button_3->setText("Useless\nbutton!");
     //  Pack it inside the container
     mGUIContainer.pack(button_3);
 

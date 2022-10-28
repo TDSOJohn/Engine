@@ -42,11 +42,6 @@ void Button::setText(const std::string& text)
     centerOrigin(mText);
 }
 
-void Button::setClickable(bool flag)
-{
-    mIsClickable = flag;
-}
-
 bool Button::isSelectable() const
 {
     return true;
@@ -69,11 +64,11 @@ void Button::deselect()
 void Button::activate()
 {
     Component::activate();
-    // If we are toggle then we should show that the button is pressed and thus "toggled".
+/*    // If we are toggle then we should show that the button is pressed and thus "toggled".
     if(mIsTogglable)
         changeTexture(Pressed);
     else
-        Button::deactivate();
+*/        Button::deactivate();
 
     if(mCallback)
         mCallback();

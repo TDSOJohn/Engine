@@ -39,7 +39,7 @@ bool Container::isSelectable() const
 
 void Container::handleEvent(const sf::Event& event)
 {
-    //  Mouse movement hover doesn't depend on the Container state and is always active
+    //  Mouse movement hover doesn't depend on the Container state and is always updated
     if(event.type == sf::Event::MouseMoved)
     {
         int index = checkComponentIntersection(event.mouseMove.x, event.mouseMove.y);
@@ -214,7 +214,7 @@ void Container::selectPrevious()
 
 bool Container::hasActive()
 {
-    return mActiveChild != -1;
+    return mActiveChild >= 0;
 }
 
 void Container::activate(std::size_t index)

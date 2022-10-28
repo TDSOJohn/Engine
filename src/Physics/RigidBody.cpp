@@ -23,6 +23,8 @@ void RigidBody::setVelocity(float v)
 {
     mVelocity = v;
     mVelocity *= -1;
+    // compute directed velocity again
+    computeDirectedVelocity(toDegree(mRotation));
 }
 
 void RigidBody::accelerate(float velocity)
