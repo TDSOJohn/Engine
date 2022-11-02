@@ -10,3 +10,10 @@
 
 #define CMAKE_BUILD_TYPE @CMAKE_BUILD_TYPE@
 #define CMAKE_HOST_SYSTEM_NAME @CMAKE_HOST_SYSTEM_NAME@
+
+// DEFINITELY NOT THE CORRECT WAY
+// Cmake writes bool in all caps, c++ doesn't like it
+#define TRUE true
+
+#define BUILD_DEFAULT_IDENTIFIERS @BuildDefaultIdentifiers@
+#define RESOURCES_PATH "@ResourcesFolderPath@"

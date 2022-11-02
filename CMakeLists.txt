@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 3.9)
+# Maybe investigate the use of EXCLUDE_FROM_ALL to have cmake compile every example or test
+# but not have them built as part of the normal build process.
 
-project(engine VERSION 0.1.0)
+# WHY IS CMP0048 a problem here???
+# project(engine VERSION 0.1.1)
+
+project(engine)
+cmake_minimum_required(VERSION 3.9)
 
 # set c++17 standard, require it and only allow the --std=c++17 flag
 set(CMAKE_CXX_STANDARD 17)
@@ -8,7 +13,29 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_BUILD_TYPE Debug)
-message(${CMAKE_BUILD_TYPE})
+
+# create a cached variable to choose if identifiers are default-built or from files in the Resources folder
+set(BuildDefaultIdentifiers true CACHE BOOL "Set FALSE to build the Resource Identifiers from files")
+
+# create a variable that stores the path to the Resources/ folder
+set(ResourcesFolderPath ../Resources/ CACHE FILEPATH "Set the path to the Resources/ folder")
+
+if(BuildDefaultIdentifiers)
+    message("Building Default Resource Identifiers...")
+    # IMPORTANT:
+    # to generate ResourceIdentifiers.hpp from .json
+    # https://stackoverflow.com/questions/67025026/best-practice-to-run-a-prebuild-step-with-cmake
+    add_executable(resourceIdentifiersGenerator ${CMAKE_CURRENT_SOURCE_DIR}/src/buildtime/ResourceIdentifiersGenerator.cpp)
+    add_custom_command(
+        OUTPUT ResourceIdentifiers.hpp
+        COMMAND "./resourceIdentifiersGenerator"
+        DEPENDS
+            resourceIdentifiersGenerator
+    #        ${CMAKE_CURRENT_SOURCE_DIR}/resourceIdentifiersData.json
+        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+    )
+    add_custom_target(generator ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ResourceIdentifiers.hpp)
+endif()
 
 # Generate config.h with:
 # version number
@@ -31,9 +58,15 @@ elseif(APPLE)
     include_directories("/usr/local/include/")
 endif()
 
+set(JSON_BuildTests OFF CACHE INTERNAL "")
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/externals/json")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/externals/json")
+
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src")
 
+include_directories(engine PUBLIC "${PROJECT_BINARY_DIR}")
 
 set (SRC
     src/Animation.cpp
@@ -66,4 +99,4 @@ set (SRC
 add_library(engine STATIC ${SRC})
 
 # Link executable to required SFML libraries
-target_link_libraries(engine sfml-graphics sfml-audio sfml-network sfml-window sfml-system)
+target_link_libraries(engine sfml-graphics sfml-audio sfml-network sfml-window sfml-system nlohmann_json::nlohmann_json)

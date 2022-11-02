@@ -39,6 +39,7 @@ int main()
     //  Create eng::TextureHolder and load the Button texture
     eng::TextureHolder text;
     text.load(eng::Textures::Buttons, eng::getResourcePath() + "Textures/Buttons.png");
+    text.load(eng::Textures::InputField, eng::getResourcePath() + "Textures/InputField.png");
 
     //  Create eng::FontHolder and load a font
     eng::FontHolder fonts;
@@ -75,7 +76,7 @@ int main()
     mGUIContainer.pack(button_3);
 
     //  Create an input field, set its position
-    auto input_1 = std::make_shared<eng::InputField>(fonts.get(eng::Fonts::Mono), text, eng::InputField::Chars, "Insert text\nhere...");
+    auto input_1 = std::make_shared<eng::InputField>(fonts.get(eng::Fonts::Mono), text, eng::InputField::Chars, "Insert text");
     input_1->setPosition(100.f, 550.f);
 
     //  Pack it inside the container

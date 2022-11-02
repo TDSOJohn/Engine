@@ -16,7 +16,7 @@ InputField::InputField(const sf::Font& font_in, const TextureHolder& textures, F
     Component(),
     mFilter(Filter),
     mCallback(),
-    mSprite(textures.get(Textures::Buttons)),
+    mSprite(textures.get(Textures::InputField)),
     mIsClickable(true)
 {
     Component::setTogglable(true);
@@ -110,7 +110,7 @@ void InputField::handleEvent(const sf::Event& event)
 
 void InputField::setPosition(const sf::Vector2f& position)
 {
-    inputText.setPosition(position.x + 10.f, position.y + 10.f);
+    inputText.setPosition(position.x + 10.f, position.y + 15.f);
     mSprite.setPosition(position.x, position.y);
 }
 
@@ -127,7 +127,7 @@ void InputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void InputField::changeTexture(Type buttonType)
 {
-    sf::IntRect textureRect(0, 72 * buttonType, 137, 72);
+    sf::IntRect textureRect(0, 54 * buttonType, 180, 54);
     mSprite.setTextureRect(textureRect);
 }
 
