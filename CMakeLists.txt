@@ -58,10 +58,10 @@ elseif(APPLE)
     include_directories("/usr/local/include/")
 endif()
 
-set(JSON_BuildTests OFF CACHE INTERNAL "")
+# set(JSON_BuildTests OFF CACHE INTERNAL "")
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/externals/json")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/externals/json")
+# add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/externals/json")
+# include_directories("${CMAKE_CURRENT_SOURCE_DIR}/externals/json")
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -99,4 +99,6 @@ set (SRC
 add_library(engine STATIC ${SRC})
 
 # Link executable to required SFML libraries
-target_link_libraries(engine sfml-graphics sfml-audio sfml-network sfml-window sfml-system nlohmann_json::nlohmann_json)
+target_link_libraries(engine sfml-graphics sfml-audio sfml-network sfml-window sfml-system) 
+
+# ADD NLOHMANN_JSON WITH: nlohmann_json::nlohmann_json
