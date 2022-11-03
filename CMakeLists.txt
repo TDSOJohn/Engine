@@ -15,33 +15,29 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_BUILD_TYPE Debug)
 
 # create a cached variable to choose if identifiers are default-built or from files in the Resources folder
-set(BuildDefaultIdentifiers true CACHE BOOL "Set FALSE to build the Resource Identifiers from files")
+set(BuildDefaultIdentifiers false CACHE BOOL "Set FALSE to build the Resource Identifiers from files")
 
 # create a variable that stores the path to the Resources/ folder
 set(ResourcesFolderPath ../Resources/ CACHE FILEPATH "Set the path to the Resources/ folder")
-
-if(BuildDefaultIdentifiers)
-    message("Building Default Resource Identifiers...")
-    # IMPORTANT:
-    # to generate ResourceIdentifiers.hpp from .json
-    # https://stackoverflow.com/questions/67025026/best-practice-to-run-a-prebuild-step-with-cmake
-    add_executable(resourceIdentifiersGenerator ${CMAKE_CURRENT_SOURCE_DIR}/src/buildtime/ResourceIdentifiersGenerator.cpp)
-    add_custom_command(
-        OUTPUT ResourceIdentifiers.hpp
-        COMMAND "./resourceIdentifiersGenerator"
-        DEPENDS
-            resourceIdentifiersGenerator
-    #        ${CMAKE_CURRENT_SOURCE_DIR}/resourceIdentifiersData.json
-        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
-    )
-    add_custom_target(generator ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ResourceIdentifiers.hpp)
-endif()
 
 # Generate config.h with:
 # version number
 # CMAKE_BUILD_TYPE
 # CMAKE_HOST_SYSTEM_NAME
 configure_file(config.h.in config.h)
+
+# IMPORTANT:
+# to generate ResourceIdentifiers.hpp from .json
+# https://stackoverflow.com/questions/67025026/best-practice-to-run-a-prebuild-step-with-cmake
+add_executable(resourceIdentifiersGenerator ${CMAKE_CURRENT_SOURCE_DIR}/src/buildtime/ResourceIdentifiersGenerator.cpp)
+add_custom_command(
+    OUTPUT ResourceIdentifiers.hpp
+    COMMAND "./resourceIdentifiersGenerator"
+    DEPENDS
+        resourceIdentifiersGenerator
+    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+add_custom_target(generator ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ResourceIdentifiers.hpp)
 
 # Find SFML shared libraries
 find_package(SFML 2.5

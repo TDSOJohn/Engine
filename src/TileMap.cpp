@@ -12,7 +12,7 @@ namespace eng
 TileMap::TileMap(const TextureHolder& textures, sf::FloatRect worldBounds):
     SceneNode(Category::Background),
     mWorldBounds(worldBounds),
-    mTileset(textures.get(Textures::ID::Tileset))
+    mTileset(textures.get(Textures::ID::TileSet))
 {
 }
 
