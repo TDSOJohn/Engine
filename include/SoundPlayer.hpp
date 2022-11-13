@@ -21,22 +21,22 @@ namespace eng
 class SoundPlayer : private sf::NonCopyable
 {
 public:
-    SoundPlayer();
+                                SoundPlayer(const SoundBufferHolder& sounds);
 
-    void play(SoundEffect::ID effect);
+    void                        play(SoundEffects::ID effect);
 
-    void play(SoundEffect::ID effect, sf::Vector2f position);
+    void                        play(SoundEffects::ID effect, sf::Vector2f position);
 
-    void removeStoppedSounds();
+    void                        removeStoppedSounds();
 
-    void setListenerPosition(sf::Vector2f position);
+    void                        setListenerPosition(sf::Vector2f position);
 
-    sf::Vector2f getListenerPosition() const;
+    sf::Vector2f                getListenerPosition() const;
 
 
 private:
-    SoundBufferHolder mSoundBuffers;
-    std::list<sf::Sound> mSounds;
+    const SoundBufferHolder&    mSoundBuffers;
+    std::list<sf::Sound>        mSounds;
 };
 
 }

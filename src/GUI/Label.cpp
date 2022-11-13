@@ -18,8 +18,8 @@
 namespace eng
 {
 
-Label::Label(const std::string& text, const FontHolder& fonts):
-    mText(text, fonts.get(Fonts::Mono), 16)
+Label::Label(const std::string& text, Fonts::ID font_used, const FontHolder& fonts):
+    mText(text, fonts.get(font_used), 16)
 {
 }
 

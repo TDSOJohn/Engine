@@ -45,26 +45,33 @@ void buildDefault(std::ofstream& resourceidentifiers)
 	writeInitial(resourceidentifiers);
 	resourceidentifiers << "namespace Textures\n{\n";
 	resourceidentifiers << "\tenum ID\n\t{\n";
-	resourceidentifiers << "\t\tButtons,\n\t\tParticle,\n\t\tTileSet,\n\t\tInputField\n";
+	resourceidentifiers << "a";
+//	resourceidentifiers << "\t\tButtons,\n\t\tParticle,\n\t\tTileSet,\n\t\tInputField\n";
 	resourceidentifiers << "\t};\n";
 	resourceidentifiers << "}\n";
 	resourceidentifiers << "namespace Fonts\n{\n";
 	resourceidentifiers << "\tenum ID\n\t{\n";
-	resourceidentifiers << "\t\tMono\n";
+	resourceidentifiers << "a";
+//	resourceidentifiers << "\t\tMono\n";
 	resourceidentifiers << "\t};\n";
 	resourceidentifiers << "}\n";
 	resourceidentifiers << "namespace Music\n{\n";
 	resourceidentifiers << "\tenum ID\n\t{\n";
-	resourceidentifiers << "\t\tTheme\n";
+	resourceidentifiers << "a";
+//	resourceidentifiers << "\t\tTheme\n";
 	resourceidentifiers << "\t};\n";
 	resourceidentifiers << "}\n";
 	resourceidentifiers << "namespace Shaders\n{\n";
 	resourceidentifiers << "\tenum ID\n\t{\n";
-	resourceidentifiers << "\t\tBrightnessPass\n";
+	resourceidentifiers << "a";
+//	resourceidentifiers << "\t\tBrightnessPass\n";
 	resourceidentifiers << "\t};\n";
 	resourceidentifiers << "}\n";
 	resourceidentifiers << "namespace SoundEffect\n{\n";
-	resourceidentifiers << "\tenum ID\n\t{\n\t\tAlliedGunfire,\n\t\tEnemyGunfire,\n\t\tExplosion1,\n\t\tExplosion2,\n\t\tLaunchMissile,\n\t\tCollectPickup,\n\t\tButton\n\t};\n";
+	resourceidentifiers << "\tenum ID\n\t{\n";
+	resourceidentifiers << "a";
+//	resourceidentifiers << "\t\tAlliedGunfire,\n\t\tEnemyGunfire,\n\t\tExplosion1,\n\t\tExplosion2,\n\t\tLaunchMissile,\n\t\tCollectPickup,\n\t\tButton\n"
+	resourceidentifiers << "\t};\n";
 	resourceidentifiers << "}\n";
 	writeClosing(resourceidentifiers);
 }

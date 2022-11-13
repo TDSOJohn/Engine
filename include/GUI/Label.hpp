@@ -27,7 +27,7 @@ class Label : public Component
 
 
     public:
-                            Label(const std::string& text, const FontHolder& fonts);
+                            Label(const std::string& text, Fonts::ID font_used, const FontHolder& fonts);
 
         virtual bool        isSelectable() const;
         void                setText(const std::string& text);

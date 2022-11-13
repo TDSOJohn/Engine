@@ -15,7 +15,7 @@ namespace eng
 class TileMap: public SceneNode
 {
 public:
-                                TileMap(const TextureHolder& textures, sf::FloatRect worldBounds);
+                                TileMap(const TextureHolder& textures, Textures::ID tileset, sf::FloatRect worldBounds);
 
     bool                        load(sf::Vector2u tileSize);
     void                        refresh();

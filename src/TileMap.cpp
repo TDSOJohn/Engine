@@ -9,10 +9,10 @@
 namespace eng
 {
 
-TileMap::TileMap(const TextureHolder& textures, sf::FloatRect worldBounds):
+TileMap::TileMap(const TextureHolder& textures, Textures::ID tileset, sf::FloatRect worldBounds):
     SceneNode(Category::Background),
     mWorldBounds(worldBounds),
-    mTileset(textures.get(Textures::ID::TileSet))
+    mTileset(textures.get(tileset))
 {
 }
 

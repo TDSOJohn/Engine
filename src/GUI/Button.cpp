@@ -21,10 +21,10 @@
 namespace eng
 {
 
-Button::Button(const FontHolder& fonts, const TextureHolder& textures):
+Button::Button(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used):
     mCallback(),
-    mSprite(textures.get(Textures::Buttons)),
-    mText("", fonts.get(Fonts::Mono), 18)
+    mSprite(textures.get(texture_used)),
+    mText("", fonts.get(font_used), 18)
 {
     changeTexture(Normal);
 

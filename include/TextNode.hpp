@@ -23,7 +23,7 @@ namespace eng
 class TextNode : public SceneNode
 {
     public:
-        explicit            TextNode(const FontHolder& fonts, const std::string& text);
+        explicit            TextNode(const FontHolder& fonts, Fonts::ID font_used, const std::string& text = "Default text");
 
         void                setString(const std::string& text);
 

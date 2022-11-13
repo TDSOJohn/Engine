@@ -24,7 +24,7 @@ namespace eng
 class ParticleNode : public SceneNode
 {
     public:
-                                ParticleNode(Particle::Type type, const TextureHolder& textures);
+                                ParticleNode(Particle::Type type, const TextureHolder& textures, Textures::ID texture_id);
 
         void                    addParticle(sf::Vector2f position);
         Particle::Type          getParticleType() const;

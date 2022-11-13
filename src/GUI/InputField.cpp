@@ -12,16 +12,16 @@
 namespace eng
 {
 
-InputField::InputField(const sf::Font& font_in, const TextureHolder& textures, Filter Filter, const std::string& text):
+InputField::InputField(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used, const std::string& text, Filter Filter):
     Component(),
     mFilter(Filter),
     mCallback(),
-    mSprite(textures.get(Textures::InputField)),
+    mSprite(textures.get(texture_used)),
     mIsClickable(true)
 {
     Component::setTogglable(true);
 
-    inputText.setFont(font_in);
+    inputText.setFont(fonts.get(font_used));
     inputText.setCharacterSize(18);
     inputText.setString(text);
     inputText.setFillColor(sf::Color::White);

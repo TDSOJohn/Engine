@@ -49,7 +49,7 @@ public:
     /// \brief Constructor.
     /// \param fonts A FontHolder reference to get fonts from.
     /// \param textures A TextureHolder reference to get textures from.
-                            Button(const FontHolder& fonts, const TextureHolder& textures);
+                            Button(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used);
 
     /// \brief Call to set the callback function.
     /// \param callback A [std::function](https://en.cppreference.com/w/cpp/utility/functional/function) parameter pointing to the function to be called

@@ -16,9 +16,9 @@
 namespace eng
 {
 
-TextNode::TextNode(const FontHolder& fonts, const std::string& text)
+TextNode::TextNode(const FontHolder& fonts, Fonts::ID font_used, const std::string& text)
 {
-    mText.setFont(fonts.get(Fonts::Mono));
+    mText.setFont(fonts.get(font_used));
     mText.setCharacterSize(20);
     mText.setFillColor(sf::Color::White);
     setString(text);

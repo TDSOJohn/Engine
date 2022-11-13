@@ -43,10 +43,10 @@ namespace
 namespace eng
 {
 
-ParticleNode::ParticleNode(Particle::Type type, const TextureHolder& textures):
+ParticleNode::ParticleNode(Particle::Type type, const TextureHolder& textures, Textures::ID texture_id):
     SceneNode(),
     mParticles(),
-    mTexture(textures.get(Textures::Particle)),
+    mTexture(textures.get(texture_id)),
     mType(type),
     mVertexArray(sf::Quads),
     mNeedsVertexUpdate(true)

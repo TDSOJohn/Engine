@@ -43,7 +43,7 @@ public:
     };
 
 public:
-    InputField(const sf::Font& font_in, const TextureHolder& textures, Filter filter = Chars, const std::string& text = "Default Text");
+    InputField(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used, const std::string& text = "Default Text", Filter filter = Chars);
     ~InputField();
 
     /// \brief Returns true because InputField is always selectable.

@@ -23,28 +23,28 @@ namespace
 namespace eng
 {
 
-SoundPlayer::SoundPlayer()
-        : mSoundBuffers()
+SoundPlayer::SoundPlayer(const SoundBufferHolder& sounds)
+        : mSoundBuffers(sounds)
         , mSounds()
 {
-    mSoundBuffers.load(SoundEffect::AlliedGunfire,	eng::getResourcePath() + "/Sound/AlliedGunfire.wav");
+/*    mSoundBuffers.load(SoundEffect::AlliedGunfire,	eng::getResourcePath() + "/Sound/AlliedGunfire.wav");
     mSoundBuffers.load(SoundEffect::EnemyGunfire,	eng::getResourcePath() + "/Sound/EnemyGunfire_2.wav");
     mSoundBuffers.load(SoundEffect::Explosion1,		eng::getResourcePath() + "/Sound/Explosion1.wav");
     mSoundBuffers.load(SoundEffect::Explosion2,		eng::getResourcePath() + "/Sound/Explosion2.wav");
     mSoundBuffers.load(SoundEffect::LaunchMissile,	eng::getResourcePath() + "/Sound/LaunchMissile.wav");
     mSoundBuffers.load(SoundEffect::CollectPickup,	eng::getResourcePath() + "/Sound/CollectPickup.wav");
     mSoundBuffers.load(SoundEffect::Button,			eng::getResourcePath() + "/Sound/Button.wav");
-
+*/
     // Listener points towards the screen (default in SFML)
     sf::Listener::setDirection(0.f, 0.f, -1.f);
 }
 
-void SoundPlayer::play(SoundEffect::ID effect)
+void SoundPlayer::play(SoundEffects::ID effect)
 {
     play(effect, getListenerPosition());
 }
 
-void SoundPlayer::play(SoundEffect::ID effect, sf::Vector2f position)
+void SoundPlayer::play(SoundEffects::ID effect, sf::Vector2f position)
 {
     mSounds.push_back(sf::Sound());
     sf::Sound& sound = mSounds.back();

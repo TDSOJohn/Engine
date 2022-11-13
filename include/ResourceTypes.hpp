@@ -26,7 +26,7 @@ typedef ResourceHolder<sf::Font, Fonts::ID>                 FontHolder;
 
 typedef ResourceHolder<sf::Shader, Shaders::ID>             ShaderHolder;
 
-typedef ResourceHolder<sf::SoundBuffer, SoundEffect::ID>	SoundBufferHolder;
+typedef ResourceHolder<sf::SoundBuffer, SoundEffects::ID>	SoundBufferHolder;
 
 typedef std::map<Music::ID, std::string>                    MusicPathHolder;
 
