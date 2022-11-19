@@ -15,7 +15,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_BUILD_TYPE Debug)
 
 # create a cached variable to choose if identifiers are default-built or from files in the Resources folder
-set(BuildDefaultIdentifiers false CACHE BOOL "Set FALSE to build the Resource Identifiers from files")
+set(BuildDefaultIdentifiers true CACHE BOOL "Set FALSE to build the Resource Identifiers from files")
 
 # create a variable that stores the path to the Resources/ folder
 set(ResourcesFolderPath ../Resources/ CACHE FILEPATH "Set the path to the Resources/ folder")

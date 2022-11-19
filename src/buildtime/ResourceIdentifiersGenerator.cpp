@@ -67,7 +67,7 @@ void buildDefault(std::ofstream& resourceidentifiers)
 //	resourceidentifiers << "\t\tBrightnessPass\n";
 	resourceidentifiers << "\t};\n";
 	resourceidentifiers << "}\n";
-	resourceidentifiers << "namespace SoundEffect\n{\n";
+	resourceidentifiers << "namespace SoundEffects\n{\n";
 	resourceidentifiers << "\tenum ID\n\t{\n";
 	resourceidentifiers << "a";
 //	resourceidentifiers << "\t\tAlliedGunfire,\n\t\tEnemyGunfire,\n\t\tExplosion1,\n\t\tExplosion2,\n\t\tLaunchMissile,\n\t\tCollectPickup,\n\t\tButton\n"
@@ -81,11 +81,15 @@ void buildFromFolder(std::ofstream& resourceidentifiers)
 	writeInitial(resourceidentifiers);
 	// Store all namespaces (es.: Textures, Music, ...)
 	std::vector<std::string> namespaces;
+	std::vector<std::vector<std::string> > paths;
 
+	int counter = 0;
     for (const auto & entry : fs::directory_iterator(RESOURCES_PATH))
     {
         if(entry.is_directory())
         {
+	    	//	create empty vector rappresenting the curent namespace (Textures, Music, ...)
+    		paths.push_back({});
 		    // See https://www.appsloveworld.com/cplus/100/156/how-to-subtract-one-path-from-another
 		    fs::path folder = entry.path().lexically_relative(entry.path().parent_path());
         	namespaces.push_back(folder);
@@ -96,9 +100,11 @@ void buildFromFolder(std::ofstream& resourceidentifiers)
 				if(resource.is_regular_file())
 				{
 					fs::path file = resource.path().lexically_relative(resource.path().parent_path());
+					//	Add different files used by the OS that the software should not use
 					if(file != ".DS_Store")
 					{
 				        std::cout << file << std::endl;
+				        paths[counter].push_back(file.string());
 				        resourceidentifiers << "\t\t" << file.stem().string() << ",\n";						
 					}
 				}
@@ -106,7 +112,16 @@ void buildFromFolder(std::ofstream& resourceidentifiers)
 			resourceidentifiers << "\t};\n";
 	        resourceidentifiers << "}\n";
         }
+        counter++;
     }
+
+    for(int i = 0; i < paths.size(); i++)
+    {
+    	std::cout << namespaces[i] << " :\n";
+    	for(int j = 0; j < paths[i].size(); j++)
+    		std::cout << "\n" << paths[i][j] << "\n";
+    }
+    std::cout << std::endl;
     writeClosing(resourceidentifiers);
 }
 

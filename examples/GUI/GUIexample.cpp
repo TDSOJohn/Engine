@@ -72,6 +72,7 @@ int main()
     auto button_3 = std::make_shared<eng::Button>(fonts, eng::Fonts::IBMPlexMono_Regular, text, eng::Textures::Buttons);
     button_3->setPosition(100.f, 400.f);
     button_3->setText("Useless\nbutton!");
+    
     //  Pack it inside the container
     mGUIContainer.pack(button_3);
 

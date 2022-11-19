@@ -37,7 +37,7 @@ the resulting ResourceIdentifiers.hpp will contain
 namespace Textures {
 	enum ID {
 		Button,
-		InputField
+		InputField,
 	}
 }
 ```
