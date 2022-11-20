@@ -110,7 +110,7 @@ void InputField::handleEvent(const sf::Event& event)
 
 void InputField::setPosition(const sf::Vector2f& position)
 {
-    inputText.setPosition(position.x + 10.f, position.y + 15.f);
+    inputText.setPosition(position.x + 30.f, position.y + 25.f);
     mSprite.setPosition(position.x, position.y);
 }
 

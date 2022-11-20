@@ -29,11 +29,11 @@ void randomNumber()
 int main()
 {
     //  Create sfml window and set framerate limit to 60
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "GUI window");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "GUI window");
     window.setFramerateLimit(60.f);
 
     //  Create the background rectangle (we'll change its color later)
-    sf::RectangleShape background(sf::Vector2f(1280, 720));
+    sf::RectangleShape background(sf::Vector2f(1920, 1080));
     background.setFillColor(sf::Color(0, 0, 0));
 
     //  Create eng::TextureHolder and load the Button texture

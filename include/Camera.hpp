@@ -18,7 +18,7 @@ public:
     /// \brief Constructor.
     ///
     /// Default smoothing: 10.
-    explicit            Camera();
+    explicit            Camera(float size_x = 1920, float size_y = 1080);
 
     /// \brief Set the smoothing factor.
     /// \param s_in new smoothing value.

@@ -16,11 +16,11 @@
 int main()
 {
     //  Create sfml window and set framerate limit to 60
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "Shaker");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Shaker");
     window.setFramerateLimit(60.f);
 
     //  Create the background rectangle (we'll change its color later)
-    sf::RectangleShape background(sf::Vector2f(1280, 720));
+    sf::RectangleShape background(sf::Vector2f(1920, 1080));
     background.setFillColor(sf::Color(0, 0, 0));
 
     //  Create eng::TextureHolder and load the Button texture
@@ -32,8 +32,8 @@ int main()
     fonts.load(eng::Fonts::QuinqueFive, eng::getResourcePath() + "Fonts/QuinqueFive.ttf");
 
     eng::Camera mCamera;
-    mCamera.reset(sf::FloatRect(0.f, 0.f, 1280.f, 720.f));
-    mCamera.setTargetPosition({640.f, 360.f});
+//    mCamera.reset(sf::FloatRect(0.f, 0.f, 1280.f, 1080.f));
+    mCamera.setTargetPosition({960.f, 540.f});
 
     eng::SceneNode mSceneGraph;
     std::unique_ptr<eng::SpriteNode> backgroundNode(new eng::SpriteNode(mTextures.get(eng::Textures::ID::Background)));
