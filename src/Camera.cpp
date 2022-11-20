@@ -28,8 +28,6 @@ void Camera::update(const sf::Time& dt)
     sf::Vector2f mCurrentPosition = sf::View::getCenter() - mShakeOffset;
     sf::Vector2f mMovement = (mTargetPosition - mCurrentPosition) / mSmoothing;
 
-    sf::View::setCenter(mCurrentPosition + mMovement);
-
     float start = sf::View::getRotation();
     bool rotDir = rotationDirection(start, mTargetRotation);
     float diff = 0.f;
@@ -50,7 +48,7 @@ void Camera::update(const sf::Time& dt)
     mShakeOffset *= mShakeRadius;
     mShakeRadius *= 0.9;
 
-    sf::View::setCenter(mCurrentPosition + mShakeOffset);
+    sf::View::setCenter(mCurrentPosition + mMovement + mShakeOffset);
 }
 
 void Camera::setTargetPosition(const sf::Vector2f& pos_in)
