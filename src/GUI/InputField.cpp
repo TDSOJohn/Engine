@@ -127,7 +127,7 @@ void InputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void InputField::changeTexture(Type buttonType)
 {
-    sf::IntRect textureRect(0, 54 * buttonType, 180, 54);
+    sf::IntRect textureRect(0, (mSprite.getTexture()->getSize().y / 3) * buttonType, mSprite.getTexture()->getSize().x, mSprite.getTexture()->getSize().y / 3);
     mSprite.setTextureRect(textureRect);
 }
 

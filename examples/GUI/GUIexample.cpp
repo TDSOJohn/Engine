@@ -43,13 +43,13 @@ int main()
 
     //  Create eng::FontHolder and load a font
     eng::FontHolder fonts;
-    fonts.load(eng::Fonts::QuinqueFive, eng::getResourcePath() + "Fonts/QuinqueFive.ttf");
+    fonts.load(eng::Fonts::Mono, eng::getResourcePath() + "Fonts/Mono.ttf");
 
     //  Create the GUI container to store GUI elements in
     eng::Container mGUIContainer;
 
     //  Create a button, set its position, text and callback function
-    auto button_1 = std::make_shared<eng::Button>(fonts, eng::Fonts::QuinqueFive, text, eng::Textures::Buttons);
+    auto button_1 = std::make_shared<eng::Button>(fonts, eng::Fonts::Mono, text, eng::Textures::Buttons);
     button_1->setPosition(100.f, 100.f);
     button_1->setText("Random\nNumber!");
     button_1->setCallback(randomNumber);
@@ -58,7 +58,7 @@ int main()
     mGUIContainer.pack(button_1);
 
     //  Create a button, set its position, text and callback function
-    auto button_2 = std::make_shared<eng::Button>(fonts, eng::Fonts::QuinqueFive, text, eng::Textures::Buttons);
+    auto button_2 = std::make_shared<eng::Button>(fonts, eng::Fonts::Mono, text, eng::Textures::Buttons);
     button_2->setPosition(100.f, 250.f);
     button_2->setText("Change\nColor!");
     //  Use std::ref as a copyable reference wrapper to pass to changeSize
@@ -69,7 +69,7 @@ int main()
     mGUIContainer.pack(button_2);
 
     //  Create a button, set its position, text and callback function
-    auto button_3 = std::make_shared<eng::Button>(fonts, eng::Fonts::QuinqueFive, text, eng::Textures::Buttons);
+    auto button_3 = std::make_shared<eng::Button>(fonts, eng::Fonts::Mono, text, eng::Textures::Buttons);
     button_3->setPosition(100.f, 400.f);
     button_3->setText("Useless\nbutton!");
     
@@ -77,7 +77,7 @@ int main()
     mGUIContainer.pack(button_3);
 
     //  Create an input field, set its position
-    auto input_1 = std::make_shared<eng::InputField>(fonts, eng::Fonts::QuinqueFive, text, eng::Textures::InputField, "Insert text");
+    auto input_1 = std::make_shared<eng::InputField>(fonts, eng::Fonts::Mono, text, eng::Textures::InputField, "Insert text");
     input_1->setPosition(100.f, 550.f);
 
     //  Pack it inside the container
