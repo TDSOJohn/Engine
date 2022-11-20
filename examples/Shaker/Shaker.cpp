@@ -29,7 +29,7 @@ int main()
 
     //  Create eng::FontHolder and load a font
     eng::FontHolder fonts;
-    fonts.load(eng::Fonts::IBMPlexMono_Regular, eng::getResourcePath() + "Fonts/IBMPlexMono_Regular.ttf");
+    fonts.load(eng::Fonts::QuinqueFive, eng::getResourcePath() + "Fonts/QuinqueFive.ttf");
 
     eng::Camera mCamera;
     mCamera.reset(sf::FloatRect(0.f, 0.f, 1280.f, 720.f));
@@ -53,14 +53,10 @@ int main()
         {
             if(event.type == sf::Event::Closed)
                 window.close();
-            else
-            {
-                mCamera.update(dt);
-                if(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Space)
-                    mCamera.shake(rand()%11);
-
-            }
+            else if(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Space)
+                    mCamera.shake(rand()%10 + 1);
         }
+        mCamera.update(dt);
         window.clear();
 
         window.draw(mSceneGraph);
