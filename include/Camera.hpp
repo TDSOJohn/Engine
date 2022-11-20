@@ -37,10 +37,17 @@ public:
     /// \param pos_in float containing the rotation to target in degrees [0..359].
     void                setTargetRotation(float deg_in);
 
+    /// \brief starts the camera shake movement
+    /// \param strength The strength of the shake (scale 0.f .. 10.f)
+    void                shake(float strength);
+
 private:
     sf::Vector2f        mTargetPosition;
     float               mTargetRotation;
     float               mSmoothing;
+
+    float               mShakeRadius;
+    sf::Vector2f        mShakeOffset;
 };
 
 

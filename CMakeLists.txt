@@ -78,6 +78,7 @@ set (SRC
     src/SceneNode.cpp
     src/SoundNode.cpp
     src/SoundPlayer.cpp
+    src/SpriteNode.cpp
     src/State.cpp
     src/StateCommand.cpp
     src/StateStack.cpp

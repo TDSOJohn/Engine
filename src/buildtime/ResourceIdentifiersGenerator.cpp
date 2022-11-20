@@ -111,8 +111,8 @@ void buildFromFolder(std::ofstream& resourceidentifiers)
 			}
 			resourceidentifiers << "\t};\n";
 	        resourceidentifiers << "}\n";
+	        counter++;
         }
-        counter++;
     }
 
     for(int i = 0; i < paths.size(); i++)
