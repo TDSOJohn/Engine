@@ -68,8 +68,8 @@ void RigidBody::rotateDeg(float deg)
 {
     // maybe think about something better later
     float mRotationDeg = toDegree(mRotation) + deg;
-    mRotation = modulo(mRotation, 360);
-    mRotation = toRadian(mRotation);
+    mRotationDeg = modulo(mRotation, 360);
+    mRotation = toRadian(mRotationDeg);
 
     mRotationSpeed = toRadian(deg);
     
