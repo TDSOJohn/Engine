@@ -58,6 +58,16 @@ void RigidBody::setMaxRotation(float r)
     maxRotation = r;
 }
 
+void RigidBody::rotateDeg(float deg)
+{
+    // maybe think about something better later
+    float mRotationDeg = toDegree(mRotation) + deg;
+    mRotation = modulo(mRotation, 360);
+    mRotation = toRadian(mRotation);
+
+    computeDirectedVelocity(mRotation);
+}
+
 void RigidBody::computeDirectedVelocity(float deg)
 {
     mRotation = toRadian(deg);

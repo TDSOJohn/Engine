@@ -32,7 +32,6 @@ int main()
     fonts.load(eng::Fonts::QuinqueFive, eng::getResourcePath() + "Fonts/QuinqueFive.ttf");
 
     eng::Camera mCamera;
-//    mCamera.reset(sf::FloatRect(0.f, 0.f, 1280.f, 1080.f));
     mCamera.setTargetPosition({960.f, 540.f});
 
     eng::SceneNode mSceneGraph;
