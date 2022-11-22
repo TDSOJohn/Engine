@@ -1,6 +1,8 @@
 #ifndef inputfield_hpp
 #define inputfield_hpp
 
+#include <functional>
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
 
