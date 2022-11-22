@@ -63,7 +63,8 @@ void GameEntity::updateCurrent(sf::Time dt, GameCommandQueue&)
     move(mDirectedVelocity * dt.asSeconds());
 }
 
-void GameEntity::rotate(float angle) {
+void GameEntity::rotate(float angle)
+{
     SceneNode::rotate(angle);
     RigidBody::rotateDeg(angle);
 }

@@ -14,7 +14,8 @@ RigidBody::RigidBody(float maxv, float maxr):
     mMass(0.f),
     mVelocity(0.f),
     mAcceleration(0.f, 0.f),
-    mRotation(0.f)
+    mRotation(0.f),
+    mRotationSpeed(0.f)
 {
     computeDirectedVelocity(0.f);
 }
@@ -48,6 +49,11 @@ float RigidBody::getCurrentRotation() const
     return toDegree(mRotation);
 }
 
+float RigidBody::getCurrentRotationSpeed() const
+{
+    return mRotationSpeed;
+}
+
 float RigidBody::getMaxRotation() const
 {
     return maxRotation;
@@ -65,6 +71,8 @@ void RigidBody::rotateDeg(float deg)
     mRotation = modulo(mRotation, 360);
     mRotation = toRadian(mRotation);
 
+    mRotationSpeed = toRadian(deg);
+    
     computeDirectedVelocity(mRotation);
 }
 

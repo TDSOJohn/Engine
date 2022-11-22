@@ -22,10 +22,12 @@ public:
     float                   getVelocity() const;
 
     float                   getCurrentRotation() const;
+    float                   getCurrentRotationSpeed() const;
     float                   getMaxRotation() const;
-    void                    setMaxRotation(float r);
 
     void                    rotateDeg(float deg);
+
+    void                    setMaxRotation(float r);
 
     //  input: rotation in degrees [0, ..., 360]
     //  necessary because RigidBody doesn't inherit sf::Transformable
