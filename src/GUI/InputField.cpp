@@ -13,7 +13,6 @@ namespace eng
 {
 
 InputField::InputField(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used, const std::string& text, Filter Filter):
-    Component(),
     mFilter(Filter),
     mCallback(),
     mSprite(textures.get(texture_used)),

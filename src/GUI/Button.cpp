@@ -21,7 +21,7 @@
 namespace eng
 {
 
-Button::Button(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used):
+Button::Button(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used, Type buttonType):
     mCallback(),
     mSprite(textures.get(texture_used)),
     mText("", fonts.get(font_used), 18)
@@ -30,6 +30,11 @@ Button::Button(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder
 
     sf::FloatRect bounds = mSprite.getLocalBounds();
     mText.setPosition(bounds.width / 2.f, bounds.height / 2.f);
+
+    if(buttonType == Type::Togglable)
+    {
+        Component::setTogglable(true);
+    }
 }
 
 void Button::setCallback(Callback callback)
@@ -60,16 +65,18 @@ void Button::deselect()
     Component::deselect();
     if(!mIsActive)
         changeTexture(Normal);
+    else
+        changeTexture(Toggled);
 }
 
 void Button::activate()
 {
     Component::activate();
-/*    // If we are toggle then we should show that the button is pressed and thus "toggled".
+    // If we are toggle then we should show that the button is pressed and thus "toggled".
     if(mIsTogglable)
-        changeTexture(Pressed);
+        changeTexture(Toggled);
     else
-*/        Button::deactivate();
+        Button::deactivate();
 
     if(mCallback)
         mCallback();
@@ -97,9 +104,9 @@ void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(mText, states);
 }
 
-void Button::changeTexture(Type buttonType)
+void Button::changeTexture(State buttonState)
 {
-    sf::IntRect textureRect(0, (mSprite.getTexture()->getSize().y / 3) * buttonType, mSprite.getTexture()->getSize().x, mSprite.getTexture()->getSize().y / 3);
+    sf::IntRect textureRect(0, (mSprite.getTexture()->getSize().y / 3) * buttonState, mSprite.getTexture()->getSize().x, mSprite.getTexture()->getSize().y / 3);
     mSprite.setTextureRect(textureRect);
 }
 

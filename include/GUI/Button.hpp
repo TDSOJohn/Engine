@@ -33,23 +33,33 @@ class Button : public Component
 public:
     /// Create std::shared_ptr<Button> with Button::Ptr syntax.
     typedef std::shared_ptr<Button>     Ptr;
+    /// Create std::function<void()> with Button::Callback syntax.
     typedef std::function<void()>       Callback;
+
+    enum Type
+    {
+        Default,
+        Togglable,
+        TypeCount
+    };
 
     /// <table><tr><th>Normal</th><th>Button has normal texture</tr>
     /// <tr><th>Selected</th><th>Button has selected texture</tr>
     /// <tr><th>Pressed</th><th>Callback is called</tr></table>
-    enum Type
+    enum State
     {
         Normal,
         Selected,
-        ButtonCount
+        Toggled,
+        StateCount
     };
+
 
 public:
     /// \brief Constructor.
     /// \param fonts A FontHolder reference to get fonts from.
     /// \param textures A TextureHolder reference to get textures from.
-                            Button(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used);
+                            Button(const FontHolder& fonts, Fonts::ID font_used, const TextureHolder& textures, Textures::ID texture_used, Type buttonType = Type::Default);
 
     /// \brief Call to set the callback function.
     /// \param callback A [std::function](https://en.cppreference.com/w/cpp/utility/functional/function) parameter pointing to the function to be called
@@ -94,7 +104,7 @@ public:
 
 private:
     virtual void            draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    void                    changeTexture(Type buttonType);
+    void                    changeTexture(State buttonState);
 
 private:
     Callback                mCallback;
