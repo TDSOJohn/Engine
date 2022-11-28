@@ -26,6 +26,7 @@ namespace eng
 {
 
 class Animation;
+class SpriteNode;
 
 /** @file */
 
