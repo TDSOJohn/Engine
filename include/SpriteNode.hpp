@@ -23,6 +23,8 @@ public:
     explicit                SpriteNode(const sf::Texture& texture);
                             SpriteNode(const sf::Texture& texture, const sf::IntRect& textureRect);
 
+    sf::FloatRect           getLocalBounds() const;
+
 private:
     sf::Sprite              mSprite;
 
