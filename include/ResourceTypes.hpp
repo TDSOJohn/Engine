@@ -4,6 +4,7 @@
 #include "ResourceIdentifiers.hpp"
 
 #include <map>
+#include <string>
 
 namespace sf
 {
