@@ -58,6 +58,7 @@ std::string         toString(sf::Keyboard::Key key);
 void                centerOrigin(sf::Sprite& sprite);
 void                centerOrigin(sf::Text& text);
 void                centerOrigin(Animation& animation);
+void                centerOrigin(SpriteNode& sprite);
 
 //  Returns 0 if clockwise, 1 otherwise
 //  Returns 0 if the two angles are 180 degrees apart

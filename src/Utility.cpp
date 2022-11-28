@@ -178,6 +178,12 @@ void centerOrigin(Animation& animation)
     animation.setOrigin(std::floor(bounds.width / 2.f), std::floor(bounds.height / 2.f));
 }
 
+void centerOrigin(SpriteNode& sprite)
+{
+    sf::FloatRect bounds = sprite.getLocalBounds();
+    sprite.setOrigin(std::floor(bounds.width / 2.f), std::floor(bounds.height / 2.f));
+}
+
 float toDegree(float radian)
 {
     return (180.f / 3.141592653589793238462643383f) * radian;
