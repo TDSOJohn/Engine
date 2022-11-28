@@ -25,6 +25,8 @@ public:
 
     sf::FloatRect           getLocalBounds() const;
 
+    void                    setTextureRect(sf::FloatRect& rectIn);
+
 private:
     sf::Sprite              mSprite;
 
