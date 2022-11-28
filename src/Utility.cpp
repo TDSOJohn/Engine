@@ -6,6 +6,7 @@
 //  Copyright © 2021 Giovanni Basso. All rights reserved.
 //
 
+#include "SpriteNode.hpp"
 #include "Utility.hpp"
 #include "Animation.hpp"
 
