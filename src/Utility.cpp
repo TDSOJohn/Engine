@@ -33,6 +33,22 @@ namespace
 namespace eng
 {
 
+Pixel::Pixel():
+    r(0),
+    g(0),
+    b(0),
+    a(0)
+{
+}
+
+Pixel::Pixel(const Pixel& pxl_in):
+    r(pxl_in.r),
+    g(pxl_in.g),
+    b(pxl_in.b),
+    a(pxl_in.a)
+{
+}
+
 unsigned int modulo(int value, int m)
 {
     if(m == 0)
